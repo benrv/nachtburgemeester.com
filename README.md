@@ -4,7 +4,7 @@
 
 Nachtregister is een persoonlijk initiatief om de nachtburgemeesters van Nederland te inventariseren — en om ze een groter publiek te geven. Niet als officieel register, maar als één plek waar namen, steden, bronnen en verhalen samenkomen.
 
-De site staat live op **[nachtburgemeester.com](https://nachtburgemeester.com/)**. De custom domain `nachtburgemeester.com` wordt later gekoppeld.
+De site staat live op **[benrv.github.io/nachtburgermeester.com](https://benrv.github.io/nachtburgermeester.com/)**. De custom domain `nachtburgermeester.com` wordt later gekoppeld.
 
 De site beweegt: rook, sterren, een kaart die zich opent, een hologram-pass, een scrollende Marquee en paginatransities. Alle effecten respecteren `prefers-reduced-motion`.
 

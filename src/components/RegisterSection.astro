@@ -1,0 +1,92 @@
+---
+import { cities, counts, meta, statusLabel, shortDate } from '../lib/cities';
+const provinces = [...new Set(cities.map(c => c.province))].sort((a, b) => a.localeCompare(b, 'nl'));
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+<section class="section register surface-paper" id="register" aria-labelledby="regTitle">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-head__num">03</span>
+      <span class="sec-head__label">Het register</span>
+      <span class="sec-head__meta" id="regMeta" aria-live="polite">{counts.actief} burgemeesters</span>
+    </div>
+
+    <header class="register__head" data-reveal>
+      <h2 class="display display--sm" id="regTitle">Alle<br /><em>burgemeesters.</em></h2>
+      <p class="body register__intro">Alle bevestigde nachtburgemeesters, alfabetisch. Daarnaast zijn er {counts.collectief} collectieven en {counts.vacant} steden zonder burgemeester. Elke vermelding heeft een bron en een controledatum; klik een stad open voor de onderbouwing.</p>
+    </header>
+
+    <div class="filters" id="filters" data-reveal>
+      <div class="filters__row">
+        <div class="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg>
+          <input id="search" type="search" placeholder="Zoek in burgemeesters" autocomplete="off" aria-label="Zoek in het register" />
+          <kbd>⌘ K</kbd>
+        </div>
+
+        <div class="chips" role="group" aria-label="Filter op status">
+          <button class="chip is-on" type="button" data-status="actief" aria-pressed="true">Burgemeesters <span data-c="actief">{counts.actief}</span></button>
+          <button class="chip" type="button" data-status="collectief" aria-pressed="false">Collectieven <span data-c="collectief">{counts.collectief}</span></button>
+          <button class="chip" type="button" data-status="vacant" aria-pressed="false">Geen burgemeester <span data-c="vacant">{counts.vacant}</span></button>
+        </div>
+
+        <label class="select">
+          <span>Provincie</span>
+          <select id="province">
+            <option value="all">Alle provincies</option>
+            {provinces.map(p => <option value={p}>{p}</option>)}
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <p class="register__verify"><span class="verified">✓</span> Bron en controledatum aanwezig · <a href="/methode/">hoe wij controleren</a></p>
+
+    <div class="rows" id="rows" aria-live="polite">
+      <div class="rows__labels" aria-hidden="true">
+        <span>Nr.</span><span>Stad</span><span>Nachtburgemeester</span><span>Sinds</span><span>Status</span><span></span>
+      </div>
+      <div id="rowList">
+        {cities.map((c, i) => {
+          const src = c.sources[0];
+          return (
+            <a
+              class="row"
+              href={c.path}
+              data-status={c.status}
+              data-province={c.province}
+              data-city={c.city}
+              data-name={c.name ?? ''}
+              data-tags={c.tags.join('|')}
+              data-source={src?.label ?? ''}
+              data-checked={c.checked}
+              hidden={c.status !== 'actief'}
+              aria-label={`${c.city} — ${c.name ?? 'geen burgemeester'} (${statusLabel[c.status]})`}
+            >
+              <span class="row__idx">{pad(i + 1)}</span>
+              <span class="row__city">{c.city}<small>{c.province}</small></span>
+              <span class="row__name">{c.status === 'vacant' ? 'Geen burgemeester' : c.name ?? '—'}{c.since ? <span class="row__since-inline"> · {c.since}</span> : null}{src ? <span class="verified" title="Bron en controledatum aanwezig">✓</span> : null}</span>
+              <span class="row__since">{c.since ?? '—'}</span>
+              <span class="row__status"><span class={`status status--${c.status}`}><i></i>{statusLabel[c.status]}</span></span>
+              <span class="row__arrow" aria-hidden="true">↗</span>
+            </a>
+          );
+        })}
+      </div>
+      <p class="rows__empty" id="empty" hidden>Geen stad gevonden. <button type="button" id="reset">Wis filters</button></p>
+    </div>
+
+    <p class="register__note" data-reveal>Mis je een stad of klopt er iets niet? <a href="/correcties/">Meld een correctie</a> — we passen het register aan met bron en datum. Nog in onderzoek: Tilburg en Breda.</p>
+  </div>
+</section>
+
+<div class="preview" id="preview" aria-hidden="true">
+  <div class="preview__bar"></div>
+  <div class="preview__body">
+    <span class="preview__status" id="pvStatus">Burgemeester</span>
+    <strong id="pvCity">Amsterdam</strong>
+    <span id="pvMayor">Freek Wallagh</span>
+    <span class="preview__check" id="pvCheck">✓ bron · 21.11.26</span>
+    <em>Open profiel ↗</em>
+  </div>
+</div>
