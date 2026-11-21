@@ -6,7 +6,7 @@ Nachtregister is een persoonlijk initiatief om de nachtburgemeesters van Nederla
 
 De site staat live op **[nachtburgemeester.com](https://nachtburgemeester.com/)**.
 
-De site beweegt: een live hologram van de nachtburgemeester, rook, sterren, een kaart die zich opent, een scrollende Marquee en paginatransities. De hero is geen vaste afbeelding: het portret wordt in de browser opgebouwd uit duizenden lichtpunten en reageert op je muis en klikken. De halvemaan is de mond; de ster op de ambtsketen is bewust vierpuntig. Alle effecten respecteren `prefers-reduced-motion`.
+De hero bestaat uit één regel — NACHTBURGEMEESTER — met bewegende kleuren en een 3D-schaduw. Daarachter staat een geanimeerde skyline van theaters, clubs, concertzalen en musea. Geen vaste afbeelding; alle effecten respecteren `prefers-reduced-motion`.
 
 ## Waarom dit bestaat
 

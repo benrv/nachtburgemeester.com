@@ -1,0 +1,47 @@
+.hero-skyline{
+  position:absolute;left:0;right:0;bottom:0;height:58%;z-index:1;pointer-events:none;
+  overflow:hidden;opacity:.92;
+  mask-image:linear-gradient(to top,#000 0 64%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to top,#000 0 64%,transparent 100%);
+  transform:translate3d(calc(var(--px,0) * -10px),calc(var(--py,0) * -4px),0);
+  transition:transform .35s ease-out;
+}
+.hero-skyline svg{display:block;width:100%;height:100%}
+.hero-skyline .skyline__back{animation:skyDrift 28s ease-in-out infinite alternate}
+.hero-skyline .skyline__front{animation:skyDrift 19s -7s ease-in-out infinite alternate-reverse}
+.sky-rim{fill:none;stroke:rgba(241,237,227,.16);stroke-width:1}
+.sky-neon-line{fill:none;stroke:var(--c-acid);stroke-width:1.2;opacity:.35}
+.sky-neon{fill:var(--c-acid);opacity:.7}
+.sky-win{
+  fill:var(--c-acid);opacity:.55;
+  animation:skyWindow 5.2s steps(1) infinite;
+  animation-delay:var(--d);
+}
+.sky-win--warm{fill:var(--c-flare);opacity:.7}
+.sky-bulb{
+  fill:var(--c-acid);opacity:.9;
+  animation:skyBulb 2.6s ease-in-out infinite;
+  animation-delay:var(--d);
+}
+.sky-bulb--warm{fill:var(--c-flare)}
+.sky-beam{
+  transform-box:fill-box;transform-origin:50% 100%;
+  animation:skyBeam 15s ease-in-out infinite alternate;
+}
+.sky-beam--b{animation-duration:19s;animation-delay:-6s}
+@keyframes skyDrift{0%{transform:translate3d(-8px,0,0)}100%{transform:translate3d(8px,-3px,0)}}
+@keyframes skyWindow{0%,86%,100%{opacity:.55}87%,90%{opacity:.15}91%,94%{opacity:.8}}
+@keyframes skyBulb{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes skyBeam{0%{transform:rotate(-7deg)}100%{transform:rotate(7deg)}}
+[data-sky="day"] .hero-skyline{opacity:.5;filter:contrast(.9)}
+[data-sky="day"] .sky-rim{stroke:rgba(10,10,11,.2)}
+[data-sky="day"] .sky-win,[data-sky="day"] .sky-bulb,[data-sky="day"] .sky-neon{fill:var(--c-fg);opacity:.35}
+[data-sky="day"] .sky-win--warm,[data-sky="day"] .sky-bulb--warm{fill:var(--c-flare);opacity:.4}
+[data-sky="day"] .sky-neon-line{stroke:var(--c-fg);opacity:.2}
+@media (max-width:680px){
+  .hero-skyline{height:48%;opacity:.75}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-skyline,.hero-skyline .skyline__back,.hero-skyline .skyline__front,
+  .sky-win,.sky-bulb,.sky-beam{animation:none!important;transform:none!important}
+}

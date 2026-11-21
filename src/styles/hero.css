@@ -1,93 +1,93 @@
 /* ============================================================
-   HERO — één monumentale titel en één symbool
+   HERO — één woord, één monument
    ============================================================ */
 
-.hero--monument{
+.hero--word{
   min-height:100svh;
-  padding:calc(var(--head-h) + clamp(26px,4vw,54px)) 0 clamp(22px,3vw,38px);
+  padding:calc(var(--head-h) + 28px) 0 0;
   justify-content:center;
+  overflow:hidden;
 }
-.hero--monument .hero__wrap{
-  grid-template-columns:minmax(0,1.23fr) minmax(300px,.68fr);
-  align-items:center;
-  gap:clamp(24px,4.2vw,72px);
-  flex:0 1 auto;
-  width:min(100% - var(--gutter)*2,1720px);
-}
-.hero__main--monument{display:flex;align-items:center;min-width:0}
-.hero__title--monument{
-  width:100%;
-  margin:0;
-  font-size:clamp(3.4rem,12.2vw,16rem);
-  line-height:.84;
-  letter-spacing:-.07em;
-  font-variation-settings:"wght" 900,"wdth" 80,"opsz" 96;
+.hero__wrap--word{
   position:relative;
-  z-index:2;
-}
-.hero__title--monument .line{
-  display:block;
-  overflow:visible;
-  padding-bottom:.012em;
-  white-space:nowrap;
-}
-.hero__title--monument .line>.word{
-  display:inline-block;
-  width:auto;
-}
-.hero__title--monument .word{
-  position:relative;
-  display:inline-block;
-  color:var(--c-fg);
-  text-shadow:
-    .018em .018em 0 var(--c-acid),
-    .038em .038em 0 var(--c-flare),
-    .065em .065em 0 rgba(10,10,11,.55);
-  transition:transform .35s var(--ease),color .3s;
-}
-.hero__title--monument:hover .word{
-  transform:skewX(-2.5deg) translateX(3px);
-  text-shadow:
-    -.018em .008em 0 var(--c-lilac),
-    .024em -.012em 0 var(--c-flare),
-    .05em .05em 0 var(--c-acid),
-    .075em .075em 0 rgba(10,10,11,.5);
-}
-.hero__aside--monument{
+  z-index:3;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:0;
-  min-width:0;
+  width:min(100% - var(--gutter)*2, 1720px);
+  flex:0 1 auto;
 }
-.hero__aside--monument .nightmayor{max-width:min(100%,480px)}
-
-
-/* dagstand: donkere letters, acid en rood als diepte */
-html[data-sky="day"] .hero__title--monument .word{
-  color:#0A0A0B;
+.hero__title--word{
+  width:100%;
+  margin:0;
+  text-align:center;
+  font-size:clamp(2rem, 15.2vw, 19rem);
+  line-height:1;
+  letter-spacing:-.085em;
+  font-variation-settings:"wght" 900,"wdth" 76,"opsz" 96;
+  white-space:nowrap;
+  position:relative;
+  z-index:3;
+}
+.hero__word{display:block;white-space:nowrap}
+.letter:nth-child(4n+2){--tone:var(--c-acid)}
+.letter:nth-child(7n){--tone:var(--c-flare)}
+.letter{
+  display:inline-block;
+  position:relative;
+  color:var(--tone,var(--c-fg));
   text-shadow:
     .018em .018em 0 var(--c-acid),
-    .038em .038em 0 var(--c-flare),
-    .065em .065em 0 rgba(10,10,11,.3);
+    .04em .04em 0 var(--c-flare),
+    .075em .075em 0 rgba(10,10,11,.55);
+  opacity:0;
+  transform:translateY(105%) rotate(3deg);
+  filter:blur(10px);
+  will-change:transform,filter,color;
+  animation-name:letterIn,letterWave,letterJitter;
+  animation-duration:.9s,7.2s,9s;
+  animation-delay:calc(.18s + var(--i)*.036s),calc(2.1s - var(--i)*.16s),calc(3.4s + var(--i)*.27s);
+  animation-timing-function:cubic-bezier(.16,1,.3,1),linear,steps(1);
+  animation-iteration-count:1,infinite,infinite;
+  animation-fill-mode:both,none,none;
 }
-
+.letter:hover{color:var(--c-acid);transform:translateY(-.045em) skewX(-4deg)}
+@keyframes letterIn{
+  0%{opacity:0;transform:translateY(105%) rotate(3deg);filter:blur(10px)}
+  100%{opacity:1;transform:translateY(0) rotate(0);filter:blur(0)}
+}
+@keyframes letterWave{
+  0%,62%,100%{color:var(--tone,var(--c-fg))}
+  68%{color:var(--c-acid)}
+  74%{color:var(--c-flare)}
+  80%{color:var(--tone,var(--c-fg))}
+}
+@keyframes letterJitter{
+  0%,94%,100%{transform:translate(0) skewX(0)}
+  95%{transform:translate(-.018em,.008em) skewX(2deg)}
+  96%{transform:translate(.012em,-.006em) skewX(-1deg)}
+  97%{transform:translate(0) skewX(0)}
+}
+html[data-sky="day"] .letter{
+  color:#0A0A0B;--tone:#0A0A0B;
+  text-shadow:
+    .018em .018em 0 var(--c-acid),
+    .04em .04em 0 var(--c-flare),
+    .075em .075em 0 rgba(10,10,11,.3);
+}
+html[data-sky="day"] .letter:hover{color:var(--c-flare)}
+html[data-sky="day"] .letter:nth-child(7n){color:var(--c-flare);--tone:var(--c-flare)}
 @media (max-width:1180px){
-  .hero--monument{min-height:0;padding-bottom:42px}
-  .hero--monument .hero__wrap{grid-template-columns:1fr;gap:28px}
-  .hero__main--monument{display:block}
-  .hero__title--monument{font-size:clamp(2.9rem,16.6vw,10rem);line-height:.92}
-  .hero__aside--monument{width:min(82vw,320px);margin:0 auto}
-  .hero__aside--monument .nightmayor{max-width:100%}
-}
-@media (max-width:980px){
-  .hero__title--monument{font-size:clamp(2.9rem,16.6vw,10rem)}
+  .hero__title--word{font-size:clamp(2rem,15.2vw,13rem)}
 }
 @media (max-width:680px){
-  .hero--monument .hero__title--monument{font-size:clamp(2.55rem,17.6vw,5.8rem);line-height:1.02}
-  .hero__title--monument .word{text-shadow:.016em .016em 0 var(--c-acid),.034em .034em 0 var(--c-flare),.052em .052em 0 rgba(10,10,11,.5)}
-  .hero__aside--monument{width:min(82vw,320px)}
+  .hero--word{padding-top:calc(var(--head-h) + 36px)}
+  .hero__title--word{font-size:clamp(1.8rem,15.1vw,5.5rem);letter-spacing:-.095em}
+  .letter{text-shadow:.016em .016em 0 var(--c-acid),.034em .034em 0 var(--c-flare),.052em .052em 0 rgba(10,10,11,.5)}
 }
 @media (prefers-reduced-motion:reduce){
-  .hero__title--monument .word{animation:none!important;transform:none!important}
+  .letter{
+    opacity:1!important;transform:none!important;filter:none!important;
+    animation:none!important;color:var(--c-fg);
+  }
 }
