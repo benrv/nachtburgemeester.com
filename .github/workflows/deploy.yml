@@ -31,12 +31,7 @@ jobs:
         run: npm ci
 
       - name: Base path bepalen
-        run: |
-          if [ -f public/CNAME ] || [ -f CNAME ]; then
-            echo "BASE_PATH=/" >> "$GITHUB_ENV"
-          else
-            echo "BASE_PATH=/${{ github.event.repository.name }}/" >> "$GITHUB_ENV"
-          fi
+        run: echo "BASE_PATH=/" >> "$GITHUB_ENV"
 
       - name: Bouwen
         run: npm run build

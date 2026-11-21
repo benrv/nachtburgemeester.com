@@ -543,14 +543,14 @@
           smoke(1.3);
           form.reset();
         } catch (err) {
-          msg.textContent = 'Versturen lukte niet. Mail ons op hallo@nachtburgermeester.com.';
+          msg.textContent = 'Versturen lukte niet. Mail ons op hallo@nachtburgemeester.com.';
           msg.classList.add('is-error');
         } finally {
           if (btn) { btn.disabled = false; btn.innerHTML = btn.dataset.label || btn.innerHTML; }
         }
       } else {
         const body = `Stad: ${data.city}\n\nWat klopt er niet:\n${data.correction}\n\nBron:\n${data.source}\n\nE-mail: ${data.email || 'niet opgegeven'}\nPagina: ${data.page}`;
-        location.href = `mailto:hallo@nachtburgermeester.com?subject=${encodeURIComponent('Correctie nachtregister: ' + data.city)}&body=${encodeURIComponent(body)}`;
+        location.href = `mailto:hallo@nachtburgemeester.com?subject=${encodeURIComponent('Correctie nachtregister: ' + data.city)}&body=${encodeURIComponent(body)}`;
         msg.textContent = 'Je e-mailprogramma opent met de melding. Verstuur de e-mail om de correctie af te ronden.';
         msg.classList.add('is-ok');
         smoke(1.15);

@@ -3,7 +3,7 @@ import { cities } from '../lib/cities';
 interface Props { endpoint?: string; }
 const { endpoint = '' } = Astro.props;
 ---
-<form class="correct__form" id="correctionForm" novalidate data-endpoint={endpoint} action="mailto:hallo@nachtburgermeester.com" method="post" enctype="text/plain">
+<form class="correct__form" id="correctionForm" novalidate data-endpoint={endpoint} action="mailto:hallo@nachtburgemeester.com" method="post" enctype="text/plain">
   <h2>Correctie doorgeven</h2>
   <p class="intro">Vul in wat er niet klopt. Een bron helpt ons om het snel te controleren. Je hoeft geen account aan te maken.</p>
 
@@ -42,5 +42,5 @@ const { endpoint = '' } = Astro.props;
 
   <button class="btn btn--acid btn--lg" type="submit">Verstuur correctie <span aria-hidden="true">↗</span></button>
   <p class="form__msg" id="formMsg" role="status">We controleren elke melding. Je hoort van ons als we iets aanpassen.</p>
-  <noscript><p class="form__msg">JavaScript staat uit. Mail je correctie naar <a href="mailto:hallo@nachtburgermeester.com">hallo@nachtburgermeester.com</a>.</p></noscript>
+  <noscript><p class="form__msg">JavaScript staat uit. Mail je correctie naar <a href="mailto:hallo@nachtburgemeester.com">hallo@nachtburgemeester.com</a>.</p></noscript>
 </form>

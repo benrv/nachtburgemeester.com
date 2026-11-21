@@ -24,7 +24,7 @@ const {
   noindex = false
 } = Astro.props;
 
-const site = Astro.site ?? new URL('https://nachtburgermeester.com');
+const site = Astro.site ?? new URL('https://nachtburgemeester.com');
 const canonical = new URL(Astro.url.pathname, site);
 const ogImage = new URL(image, site);
 const org = {
@@ -32,7 +32,7 @@ const org = {
   name: 'Nachtregister',
   url: site.href,
   description: 'Het nationale, onafhankelijke register van nachtburgemeesters in Nederland.',
-  email: 'hallo@nachtburgermeester.com'
+  email: 'hallo@nachtburgemeester.com'
 };
 const website = {
   '@type': 'WebSite',

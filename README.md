@@ -4,7 +4,7 @@
 
 Nachtregister is een persoonlijk initiatief om de nachtburgemeesters van Nederland te inventariseren — en om ze een groter publiek te geven. Niet als officieel register, maar als één plek waar namen, steden, bronnen en verhalen samenkomen.
 
-De site staat live op **[benrv.github.io/nachtburgermeester.com](https://benrv.github.io/nachtburgermeester.com/)**. De custom domain `nachtburgermeester.com` wordt later gekoppeld.
+De site staat live op **[nachtburgemeester.com](https://nachtburgemeester.com/)**.
 
 De site beweegt: rook, sterren, een kaart die zich opent, een hologram-pass, een scrollende Marquee en paginatransities. Alle effecten respecteren `prefers-reduced-motion`.
 
@@ -41,7 +41,7 @@ Elke vermelding heeft:
 - een **controledatum**;
 - waar mogelijk een **verhaal** over de rol, de stad en de mensen erachter.
 
-We publiceren liever minder dan iets onzekers. Klopt er iets niet? Gebruik het [correctieformulier](https://benrv.github.io/nachtburgermeester.com/correcties/) of mail **[hallo@nachtburgermeester.com](mailto:hallo@nachtburgermeester.com)**. We controleren elke melding en reageren binnen vijf werkdagen.
+We publiceren liever minder dan iets onzekers. Klopt er iets niet? Gebruik het [correctieformulier](https://nachtburgemeester.com/correcties/) of mail **[hallo@nachtburgemeester.com](mailto:hallo@nachtburgemeester.com)**. We controleren elke melding en reageren binnen vijf werkdagen.
 
 ## Bijdragen
 
@@ -80,12 +80,12 @@ src/scripts/site.js       zon, thema, kaart, filters en formulier
 src/styles/effects.css   afterhours-laag: sterren, licht, kaart, hologram
 src/scripts/effects.js   sterren, sectierail, marquee, tilt en rookpuffs
 scripts/validate-data.mjs bouwcontrole op bronnen, aantallen en foto's
-scripts/rewrite-base.mjs  padcorrectie voor de github.io-preview
+scripts/rewrite-base.mjs  optionele padcorrectie voor subpath-previews
 ```
 
 De build faalt bij ontbrekende bronnen, verkeerde aantallen of een ontbrekend fotobestand. Draai daarom altijd `npm run build` vóór een pull request.
 
-De deploy loopt via `.github/workflows/deploy.yml`. Zolang er geen `public/CNAME` is, bouwt de workflow voor de projectpagina op GitHub Pages. Zodra je een custom domain toevoegt, bouwt hij voor de root. Geen API-keys of geheimen in de repo.
+De deploy loopt via `.github/workflows/deploy.yml`. De workflow bouwt voor de root van `nachtburgemeester.com`; `public/CNAME` legt het domein vast. Geen API-keys of geheimen in de repo.
 
 ## Den Haag: nachtleven
 
@@ -113,10 +113,10 @@ Foto's vallen onder de licentie die bij de foto staat. De code staat publiek om 
 
 ## Contact
 
-- Correcties: [correctieformulier](https://benrv.github.io/nachtburgermeester.com/correcties/)
-- E-mail: [hallo@nachtburgermeester.com](mailto:hallo@nachtburgermeester.com)
-- Live: [benrv.github.io/nachtburgermeester.com](https://benrv.github.io/nachtburgermeester.com/)
-- Methode: [benrv.github.io/nachtburgermeester.com/methode/](https://benrv.github.io/nachtburgermeester.com/methode/)
+- Correcties: [correctieformulier](https://nachtburgemeester.com/correcties/)
+- E-mail: [hallo@nachtburgemeester.com](mailto:hallo@nachtburgemeester.com)
+- Live: [nachtburgemeester.com](https://nachtburgemeester.com/)
+- Methode: [nachtburgemeester.com/methode/](https://nachtburgemeester.com/methode/)
 - GitHub: [github.com/benrv/nachtburgermeester.com](https://github.com/benrv/nachtburgermeester.com)
 
 Dit is een persoonlijk initiatief. Geen gemeente, geen overheidsregister, geen commercieel platform. Wel een poging om de nacht en de mensen die ervoor staan serieus te nemen.

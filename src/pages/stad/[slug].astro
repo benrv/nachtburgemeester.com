@@ -54,7 +54,7 @@ const pageTitle = city.status === 'vacant'
   ? `${city.city} — geen nachtburgemeester | Nachtregister`
   : `${city.city} — ${city.name} | Nachtregister`;
 const description = `${city.city}: ${city.blurb}`;
-const site = Astro.site ?? new URL('https://nachtburgermeester.com');
+const site = Astro.site ?? new URL('https://nachtburgemeester.com');
 const pageUrl = new URL(city.path, site);
 
 const ld = [
