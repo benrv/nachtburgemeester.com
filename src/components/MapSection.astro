@@ -1,0 +1,100 @@
+---
+import type { City } from '../lib/cities';
+import { counts, meta, statusLabel, featuredCity } from '../lib/cities';
+import map from '../data/map.json';
+import { shortDate } from '../lib/cities';
+
+interface Props { cities: City[]; }
+const { cities } = Astro.props;
+const anchors = new Set(['Amsterdam', 'Den Haag', 'Groningen', 'Maastricht', 'Nijmegen']);
+const featured = featuredCity;
+const firstSource = featured.sources[0];
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+<section class="section mapsec surface-ink" id="kaart" aria-labelledby="mapTitle">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-head__num">02</span>
+      <span class="sec-head__label">De kaart</span>
+      <span class="sec-head__meta">{counts.total} vermeldingen · bijgewerkt {shortDate(meta.updated)}</span>
+    </div>
+
+    <div class="mapsec__grid">
+      <div class="mapsec__panel">
+        <h2 class="display display--sm" id="mapTitle">De nacht,<br /><em>van boven.</em></h2>
+        <p class="body">Elke stip is een bevestigde vermelding. Kleur is status. Beweeg over de kaart, of kies een stad.</p>
+
+        <div class="map-selected" id="mapSelected" aria-live="polite">
+          <div class="map-selected__top">
+            <span class={`status status--${featured.status}`} id="msStatus"><i></i>{statusLabel[featured.status]}</span>
+            <span class="map-selected__prov" id="msProv">{featured.province}</span>
+          </div>
+          <h3 id="msCity">{featured.city}</h3>
+          <p class="map-selected__mayor"><span id="msMayor">{featured.name ?? 'Geen burgemeester'}</span> <span id="msSince">{featured.since ? `· sinds ${featured.since}` : ''}</span></p>
+          <p class="body body--sm" id="msBlurb">{featured.blurb}</p>
+          <div class="tags" id="msTags">{featured.tags.map(t => <span>{t}</span>)}</div>
+          <p class="map-selected__source">Bron: <a id="msSource" href={firstSource?.url ?? '#'} target="_blank" rel="noopener">{firstSource?.label ?? 'Bron volgt'}</a> · <span id="msChecked">gecontroleerd {shortDate(featured.checked)}</span></p>
+          <a class="btn btn--line" id="msOpen" href={featured.path}>Open profiel <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <ul class="legend" aria-label="Legenda">
+          <li><i class="lg lg--actief"></i>Burgemeester</li>
+          <li><i class="lg lg--collectief"></i>Collectief</li>
+          <li><i class="lg lg--vacant"></i>Geen burgemeester</li>
+        </ul>
+      </div>
+
+      <div class="mapsec__map" data-reveal>
+        <div class="map-tooltip" id="mapTip" aria-hidden="true"></div>
+        <svg id="nlMap" viewBox={map.viewBox} role="group" aria-label="Kaart van Nederland met de steden uit het nachtregister">
+          <defs>
+            <linearGradient id="landFill" x1="0" y1="0" x2="0.7" y2="1">
+              <stop class="s1" offset="0"></stop>
+              <stop class="s2" offset="1"></stop>
+            </linearGradient>
+            <pattern id="dotPat" width="13" height="13" patternUnits="userSpaceOnUse">
+              <circle class="dot" cx="1.5" cy="1.5" r="1.15"></circle>
+            </pattern>
+          </defs>
+          <g aria-hidden="true">
+            {map.paths.map((d: string) => <path class="map-land" d={d}></path>)}
+            {map.paths.map((d: string) => <path class="map-dots" d={d}></path>)}
+          </g>
+          <g>
+            {cities.map((city) => {
+              const src = city.sources[0];
+              const anchor = anchors.has(city.city);
+              const left = city.city === 'Amsterdam';
+              const dx = left ? 0 : 16;
+              const dy = left ? -17 : 5;
+              return (
+                <a
+                  href={city.path}
+                  class={`map-node${anchor ? ' is-anchor' : ''}${city.id === featured.id ? ' is-active' : ''}`}
+                  data-city={city.city}
+                  data-name={city.name ?? ''}
+                  data-status={city.status}
+                  data-province={city.province}
+                  data-since={city.since ?? ''}
+                  data-blurb={city.blurb}
+                  data-tags={city.tags.join('|')}
+                  data-source={src?.label ?? ''}
+                  data-source-url={src?.url ?? ''}
+                  data-checked={city.checked}
+                  data-href={city.path}
+                  aria-label={`${city.city}: ${statusLabel[city.status]}`}
+                >
+                  <circle class="n-ring" cx={city.x} cy={city.y} r="26"></circle>
+                  <circle class="n-dot" cx={city.x} cy={city.y} r={city.status === 'vacant' ? 7 : 8.8}></circle>
+                  <text class="n-label" x={city.x + dx} y={city.y + dy} text-anchor={left ? 'end' : undefined}>{city.city}</text>
+                  <circle class="n-hit" cx={city.x} cy={city.y} r="32" fill="transparent"></circle>
+                </a>
+              );
+            })}
+          </g>
+        </svg>
+        <div class="map-caption"><span>NL · 52°22′N 4°53′E</span><span>Interactief</span></div>
+      </div>
+    </div>
+  </div>
+</section>

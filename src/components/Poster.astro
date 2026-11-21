@@ -1,0 +1,18 @@
+---
+import type { City } from '../lib/cities';
+interface Props { city: City; label?: string; variant?: 'feature' | 'profile'; }
+const { city, label = 'Uitgelicht · 11 / ’26', variant = 'feature' } = Astro.props;
+const initial = city.city.replace(/^'s-/, '').charAt(0).toUpperCase();
+---
+<figure class={`poster poster--${variant}`}>
+  <div class="poster__noise" aria-hidden="true"></div>
+  <div class="poster__halftone" aria-hidden="true"></div>
+  <span class="poster__tag">{label}</span>
+  <span class="poster__vertical">{city.city} · {city.city} · {city.city}</span>
+  <div class="poster__letter" aria-hidden="true">{initial}</div>
+  <div class="poster__bottom">
+    <h3>{city.city}</h3>
+    <p>{city.name ?? 'Geen burgemeester'} · {city.since ? `sinds ${city.since}` : 'geen bevestigde burgemeester'}</p>
+  </div>
+  <span class="poster__stamp" aria-hidden="true">NACHT<br />STAD<br />✳</span>
+</figure>

@@ -1,0 +1,109 @@
+---
+import '../styles/base.css';
+import '../styles/theme.css';
+import '../styles/site.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  bodyClass?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = 'Nachtregister — alle nachtburgemeesters van Nederland',
+  description = 'Het nationale register van nachtburgemeesters in Nederland. Met naam, stad, bron en controledatum.',
+  image = '/og-default.png',
+  jsonLd,
+  bodyClass = '',
+  noindex = false
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://nachtburgermeester.com');
+const canonical = new URL(Astro.url.pathname, site);
+const ogImage = new URL(image, site);
+const org = {
+  '@type': 'Organization',
+  name: 'Nachtregister',
+  url: site.href,
+  description: 'Het nationale, onafhankelijke register van nachtburgemeesters in Nederland.',
+  email: 'hallo@nachtburgermeester.com'
+};
+const website = {
+  '@type': 'WebSite',
+  name: 'Nachtregister',
+  url: site.href,
+  inLanguage: 'nl-NL'
+};
+const graph = jsonLd
+  ? [{ '@context': 'https://schema.org', '@graph': [org, website, ...(Array.isArray(jsonLd) ? jsonLd : [jsonLd])] }]
+  : [{ '@context': 'https://schema.org', '@graph': [org, website] }];
+const json = JSON.stringify(graph).replace(/</g, '\\u003c');
+---
+<!doctype html>
+<html lang="nl" data-sky="night">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
+    <meta name="theme-color" content="#0A0A0B" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:site_name" content="Nachtregister" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:image" content={ogImage.href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage.href} />
+    {noindex ? <meta name="robots" content="noindex" /> : null}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/BricolageGrotesque-200-800-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/InstrumentSerif-400-italic-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <script type="application/ld+json" set:html={json} />
+    <script is:inline>
+      (() => {
+        try {
+          const mode = localStorage.getItem('nr-sky');
+          if (mode && mode !== 'auto') {
+            document.documentElement.dataset.sky = mode;
+          } else {
+            const h = Number(new Intl.DateTimeFormat('nl-NL', { timeZone: 'Europe/Amsterdam', hour: '2-digit', hour12: false }).format(new Date()));
+            document.documentElement.dataset.sky = h >= 8 && h < 17 ? 'day' : h >= 17 && h < 21 ? 'dusk' : h >= 5 && h < 8 ? 'dawn' : 'night';
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class={bodyClass} id="top">
+    <a class="skip" href="#main">Naar de inhoud</a>
+    <div class="veil" aria-hidden="true"></div>
+    <canvas class="haze" id="haze" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="spotlight" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"><span></span></div>
+    <div class="progress" aria-hidden="true"><i></i></div>
+
+    <Header />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script>
+      import '../scripts/site.js';
+    </script>
+  </body>
+</html>

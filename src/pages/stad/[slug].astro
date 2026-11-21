@@ -1,0 +1,153 @@
+---
+import Base from '../../layouts/Base.astro';
+import Poster from '../../components/Poster.astro';
+import { cities, statusLabel, formatDate } from '../../lib/cities';
+import map from '../../data/map.json';
+
+export function getStaticPaths() {
+  return cities.map((city) => ({ params: { slug: city.id }, props: { city } }));
+}
+
+const { city } = Astro.props;
+const index = cities.findIndex((c) => c.id === city.id);
+const prev = cities[(index - 1 + cities.length) % cities.length];
+const next = cities[(index + 1) % cities.length];
+const sameProvince = cities.filter((c) => c.province === city.province && c.id !== city.id).slice(0, 3);
+const same = sameProvince.length ? sameProvince : cities.filter((c) => c.status === 'actief' && c.id !== city.id).slice(0, 3);
+const roleLabel = city.status === 'actief' ? 'Nachtburgemeester' : city.status === 'collectief' ? 'Collectief' : 'Situatie';
+const pageTitle = city.status === 'vacant'
+  ? `${city.city} — geen nachtburgemeester | Nachtregister`
+  : `${city.city} — ${city.name} | Nachtregister`;
+const description = `${city.city}: ${city.blurb}`;
+const site = Astro.site ?? new URL('https://nachtburgermeester.com');
+const pageUrl = new URL(city.path, site);
+
+const ld = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Register', item: new URL('/', site).href },
+      { '@type': 'ListItem', position: 2, name: city.city, item: pageUrl.href }
+    ]
+  },
+  {
+    '@type': 'WebPage',
+    name: pageTitle,
+    description,
+    url: pageUrl.href,
+    inLanguage: 'nl-NL',
+    isPartOf: { '@type': 'WebSite', name: 'Nachtregister', url: new URL('/', site).href }
+  },
+  ...(city.status === 'actief' && city.name ? [{
+    '@type': 'Person',
+    name: city.name,
+    jobTitle: 'Nachtburgemeester',
+    workLocation: { '@type': 'City', name: city.city }
+  }] : []),
+  ...(city.status === 'collectief' && city.name ? [{
+    '@type': 'Organization',
+    name: city.name,
+    description: city.blurb
+  }] : [])
+];
+---
+<Base title={pageTitle} description={description} image="/og-default.png" jsonLd={ld}>
+  <article class="profile">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Kruimelpad">
+        <a href="/">Nachtregister</a><span>/</span><a href="/#register">Register</a><span>/</span><span>{city.city}</span>
+      </nav>
+
+      <header class="profile__head">
+        <div class="profile__eyebrow">
+          <span class={`status status--${city.status}`}><i></i>{statusLabel[city.status]}</span>
+          <span class="profile__prov">{city.province}</span>
+          <span class="profile__prov">Laatst gecontroleerd: {formatDate(city.checked, { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+        </div>
+        <h1>{city.city}</h1>
+        <p class="profile__role">
+          {city.name ?? 'Geen burgemeester'}
+          <span>{roleLabel}</span>
+        </p>
+      </header>
+
+      <div class="profile__grid">
+        <aside class="profile__media">
+          {city.photo ? (
+            <figure class={`profile__photo${city.photo.kind === 'city' ? ' profile__photo--city' : ''}`}>
+              <span class="profile__photo-tag">{city.photo.kind === 'city' ? 'Sfeerbeeld' : 'Portret'}</span>
+              <img src={city.photo.src} alt={city.photo.alt} loading="eager" decoding="async" />
+            </figure>
+          ) : (
+            <Poster city={city} variant="profile" label={`Stadsprofiel · ${String(index + 1).padStart(2, '0')} / ${cities.length}`} />
+          )}
+          {city.photo ? (
+            <p class="profile__caption">
+              Foto: {city.photo.credit} · <a href={city.photo.licenseUrl} target="_blank" rel="license noopener">{city.photo.license}</a> · <a href={city.photo.source} target="_blank" rel="noopener">bron</a>
+            </p>
+          ) : (
+            <p class="profile__placeholder">Nog geen portret met publicatierechten. Dit profiel gebruikt het typografische poster-systeem.</p>
+          )}
+        </aside>
+
+        <div class="profile__body">
+          {city.alert ? <p class="profile__alert">{city.alert}</p> : null}
+          <p class="lead">{city.blurb}</p>
+
+          <dl class="profile__meta">
+            <div><dt>{roleLabel}</dt><dd>{city.name ?? 'Geen burgemeester'}</dd></div>
+            <div><dt>Sinds</dt><dd>{city.since ?? '—'}</dd></div>
+            <div><dt>Status</dt><dd>{statusLabel[city.status]}</dd></div>
+          </dl>
+
+          <div class="tags">{city.tags.map((t) => <span>{t}</span>)}</div>
+
+          <div class="profile__links">
+            {city.website ? <a class="btn btn--line" href={city.website} target="_blank" rel="noopener">Website <span aria-hidden="true">↗</span></a> : null}
+            <a class="link-arrow" href={`/correcties/?stad=${city.id}`}>Meld een correctie <span aria-hidden="true">↗</span></a>
+          </div>
+
+          <section class="profile__source" aria-labelledby="sourcesTitle">
+            <h2 id="sourcesTitle">Bronnen</h2>
+            <ul class="source-list">
+              {city.sources.map((s) => (
+                <li>
+                  <a href={s.url} target="_blank" rel="noopener">{s.label}</a>
+                  <small>{formatDate(s.date, { day: 'numeric', month: 'short', year: 'numeric' })}</small>
+                  {s.title ? <em>{s.title}</em> : null}
+                </li>
+              ))}
+            </ul>
+            <p class="profile__checked">Laatst gecontroleerd: {formatDate(city.checked)}</p>
+          </section>
+        </div>
+      </div>
+
+      <div class="profile__lower">
+        <figure class="minimap">
+          <svg viewBox={map.viewBox} role="img" aria-label={`${city.city} op de kaart van Nederland`}>
+            <g aria-hidden="true">{map.paths.map((d: string) => <path class="map-land" d={d}></path>)}</g>
+            <circle class={`mini-dot mini-dot--${city.status}`} cx={city.x} cy={city.y} r="22"></circle>
+            <circle class="mini-ring" cx={city.x} cy={city.y} r="42"></circle>
+            <text class="mini-label" x={city.x + 30} y={city.y + 8}>{city.city}</text>
+          </svg>
+          <figcaption><span>NL · {city.province}</span><span>{city.lat.toFixed(2)}°N {city.lon.toFixed(2)}°E</span></figcaption>
+        </figure>
+
+        <nav class="profile__nav" aria-label="Vorige en volgende stad">
+          <a href={prev.path}><small>← Vorige</small><strong>{prev.city}</strong><span>{statusLabel[prev.status]}</span></a>
+          <a href={next.path}><small>Volgende →</small><strong>{next.city}</strong><span>{statusLabel[next.status]}</span></a>
+        </nav>
+      </div>
+
+      {same.length ? (
+        <section class="profile__same" aria-labelledby="sameTitle">
+          <h2 id="sameTitle">Ook in {city.province}</h2>
+          <div class="same-list">
+            {same.map((c) => <a href={c.path}><strong>{c.city}</strong><span>{statusLabel[c.status]}</span></a>)}
+          </div>
+        </section>
+      ) : null}
+    </div>
+  </article>
+</Base>

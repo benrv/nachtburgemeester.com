@@ -1,0 +1,1063 @@
+{
+  "meta": {
+    "title": "Nachtregister — register 2026-11-21",
+    "version": "1.0",
+    "updated": "2026-11-21",
+    "note": "Alleen vermeldingen met een bron en controledatum. Steden met een onduidelijke status (Tilburg, Breda) zijn niet opgenomen; zij staan op de onderzoekslijst.",
+    "counts": {
+      "actief": 14,
+      "collectief": 4,
+      "vacant": 4,
+      "total": 22
+    },
+    "updatedLabel": "21 november 2026",
+    "site": "https://nachtburgermeester.com",
+    "canonicalNote": "Alle vermeldingen zijn voorzien van bron en controledatum."
+  },
+  "cities": [
+    {
+      "id": "alkmaar",
+      "city": "Alkmaar",
+      "province": "Noord-Holland",
+      "lat": 52.6324,
+      "lon": 4.7534,
+      "x": 375.6,
+      "y": 383.9,
+      "status": "actief",
+      "name": "Robert-Jan Wille",
+      "role": "Nachtburgemeester",
+      "since": "2015",
+      "website": null,
+      "tags": [
+        "zelfbenoemd",
+        "nachtleven",
+        "az"
+      ],
+      "blurb": "Sinds 2015 zelfbenoemd nachtburgemeester van Alkmaar. In april 2026 nog steeds actief in die rol.",
+      "sources": [
+        {
+          "label": "NH Nieuws",
+          "url": "https://noord-holland.headliner.nl/item/nachtburgemeester-noemt-az-winst-goed-begin-en-kijkt-al-uit-naar-het-volgende-feest-nhnieuws-16877",
+          "date": "2026-04-20",
+          "title": "Nachtburgemeester noemt AZ-winst goed begin"
+        },
+        {
+          "label": "Streekstad Centraal",
+          "url": "https://streekstadcentraal.nl/nieuws/10184931-alkmaarse-nachtburgemeester-nachtelijke-dromen-werkelijkheid-laten-worden",
+          "date": "2015-07-28",
+          "title": "Alkmaarse nachtburgemeester"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/alkmaar.jpg",
+        "alt": "Sfeerbeeld van Alkmaar",
+        "credit": "Txllxt TxllxT",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Alkmaar_-_Waagplein_-_De_Waag_-_Cheese_Weighhouse_1583.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/alkmaar/"
+    },
+    {
+      "id": "amersfoort",
+      "city": "Amersfoort",
+      "province": "Utrecht",
+      "lat": 52.1561,
+      "lon": 5.3878,
+      "x": 527.2,
+      "y": 569.6,
+      "status": "vacant",
+      "name": null,
+      "role": "Geen burgemeester",
+      "since": null,
+      "website": null,
+      "tags": [
+        "vacature",
+        "keistad",
+        "nacht"
+      ],
+      "blurb": "Geen nachtburgemeester: Lisa Bast stopte in maart 2026. Een opvolger is nog niet bevestigd.",
+      "sources": [
+        {
+          "label": "3voor12 Lokaal",
+          "url": "https://3voor12lokaal.vpro.nl/artikelen/nachtburgemeester-amersfoort-legt-functie-neer",
+          "date": "2026-03-20",
+          "title": "Nachtburgemeester Amersfoort legt functie neer"
+        },
+        {
+          "label": "RTV Utrecht",
+          "url": "https://www.rtvutrecht.nl/nieuws/4020381/massale-steun-voor-amersfoortse-nachtburgemeester-na-horecaverbod-vanwege-paddodruppel",
+          "date": "2026-03-23",
+          "title": "Massale steun voor Amersfoortse nachtburgemeester"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/amersfoort.jpg",
+        "alt": "Sfeerbeeld van Amersfoort",
+        "credit": "Matthias92",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Koppelpoort_Amersfoort_at_night.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/amersfoort/"
+    },
+    {
+      "id": "amsterdam",
+      "city": "Amsterdam",
+      "province": "Noord-Holland",
+      "lat": 52.3676,
+      "lon": 4.9041,
+      "x": 411.6,
+      "y": 487.1,
+      "status": "actief",
+      "name": "Freek Wallagh",
+      "role": "Nachtburgemeester",
+      "since": "2023",
+      "website": "https://nachtburgemeester.amsterdam/",
+      "tags": [
+        "nachtcultuur",
+        "24-uursvergunning",
+        "clubcultuur"
+      ],
+      "blurb": "Verkozen in maart 2023. Zijn opvolger wordt op 26 november 2026 gekozen in de Melkweg; tot die tijd is Wallagh de zittende nachtburgemeester.",
+      "sources": [
+        {
+          "label": "NH Nieuws",
+          "url": "https://www.nhnieuws.nl/nieuws/316578/amsterdam-heeft-voor-het-eerst-in-bijna-vier-jaar-weer-een-nachtburgemeester",
+          "date": "2023-03-22",
+          "title": "Amsterdam heeft voor het eerst in bijna vier jaar weer een nachtburgemeester"
+        },
+        {
+          "label": "NH Nieuws",
+          "url": "https://www.nhnieuws.nl/nieuws/363200/amsterdam-zoekt-nieuwe-nachtburgemeester-als-opvolger-van-freek-wallagh",
+          "date": "2026-09-07",
+          "title": "Amsterdam zoekt nieuwe nachtburgemeester, als opvolger van Freek Wallagh"
+        },
+        {
+          "label": "at5.nl",
+          "url": "https://www.at5.nl/artikelen/241032/dit-zijn-de-kandidaten-om-de-nieuwe-nachtburgemeester-van-de-stad-te-worden",
+          "date": "2026-11-13",
+          "title": "Dit zijn de kandidaten om de nieuwe nachtburgemeester van de stad te worden"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": "Verkiezing op 26 november 2026 in de Melkweg. Kandidaten: Fien Bulsing en Taj & Diès Kroon.",
+      "photo": {
+        "src": "/images/freek-wallagh.jpg",
+        "alt": "Portret van Freek Wallagh",
+        "credit": "Vera de Kok",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source": "https://commons.wikimedia.org/wiki/File:Freek_Wallagh_-_2023.jpg",
+        "kind": "portrait"
+      },
+      "alert": "Verkiezing van de opvolger: donderdag 26 november 2026, Melkweg Amsterdam.",
+      "path": "/stad/amsterdam/"
+    },
+    {
+      "id": "arnhem",
+      "city": "Arnhem",
+      "province": "Gelderland",
+      "lat": 51.9851,
+      "lon": 5.8987,
+      "x": 649.3,
+      "y": 636.3,
+      "status": "vacant",
+      "name": null,
+      "role": "Geen burgemeester",
+      "since": null,
+      "website": "https://www.nachtburgemeesterarnhem.nl/",
+      "tags": [
+        "eerste",
+        "nachtcollectief",
+        "zoektocht"
+      ],
+      "blurb": "Nog geen nachtburgemeester: de zoektocht naar de eerste startte op 11 november 2026. Aanmelden kan tot 14 december, daarna stemmen inwoners.",
+      "sources": [
+        {
+          "label": "3voor12 Lokaal",
+          "url": "https://3voor12lokaal.vpro.nl/artikelen/arnhem-zoekt-nachtburgemeester",
+          "date": "2026-11-11",
+          "title": "Arnhem zoekt Nachtburgemeester"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/arnhem.jpg",
+        "alt": "Sfeerbeeld van Arnhem",
+        "credit": "Robert221",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "source": "https://commons.wikimedia.org/wiki/File:Rijnkade,_Arnhem_at_night.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/arnhem/"
+    },
+    {
+      "id": "assen",
+      "city": "Assen",
+      "province": "Drenthe",
+      "lat": 52.9928,
+      "lon": 6.5642,
+      "x": 808.4,
+      "y": 243.3,
+      "status": "actief",
+      "name": "Chiel Setz",
+      "role": "Nachtburgemeester",
+      "since": "2025",
+      "website": null,
+      "tags": [
+        "drenthe",
+        "nachtleven",
+        "cijfers"
+      ],
+      "blurb": "Chiel Setz werd begin maart 2025 geïnstalleerd als nachtburgemeester van Assen, als opvolger van Erwin Zijlstra.",
+      "sources": [
+        {
+          "label": "RTV Drenthe",
+          "url": "https://www.rtvdrenthe.nl/nieuws/17274494/nachtburgemeester-chiel-setz-van-assen-rapportcijfer-nachtleven-moet-omhoog",
+          "date": "2025-03-01",
+          "title": "Nachtburgemeester Chiel Setz van Assen"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/assen.jpg",
+        "alt": "Sfeerbeeld van Assen",
+        "credit": "Sneeuwvlakte",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Markt_Assen_(2022).jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/assen/"
+    },
+    {
+      "id": "delft",
+      "city": "Delft",
+      "province": "Zuid-Holland",
+      "lat": 52.0116,
+      "lon": 4.3571,
+      "x": 280.9,
+      "y": 626.0,
+      "status": "actief",
+      "name": "Leo Quack",
+      "role": "Nachtburgemeester",
+      "since": "2013",
+      "website": null,
+      "tags": [
+        "erefunctie",
+        "studentenstad",
+        "traditie"
+      ],
+      "blurb": "Sinds 2013 de Delftse nachtburgemeester; in 2025 koninklijk onderscheiden. De tweejaartermijn wordt in de praktijk niet gehandhaafd.",
+      "sources": [
+        {
+          "label": "Delft op Zondag",
+          "url": "https://www.delftopzondag.nl/nieuws/algemeen/71964/delft-heeft-een-nieuwe-nachtburgemeester-en-zijn-naam-is-leo-quack",
+          "date": "2013-02-03",
+          "title": "Delft heeft een nieuwe Nachtburgemeester en zijn naam is Leo Quack"
+        },
+        {
+          "label": "Delft op Zondag",
+          "url": "https://www.delftopzondag.nl/nieuws/algemeen/105998/koninklijke-onderscheiding-voor-nachtburgemeester-leo-quack",
+          "date": "2025-03-01",
+          "title": "Koninklijke onderscheiding voor nachtburgemeester Leo Quack"
+        },
+        {
+          "label": "Delft op Zondag",
+          "url": "https://www.delftopzondag.nl/nieuws/algemeen/111096/column-bij-nacht-en-ontij-met-leo-quack",
+          "date": "2026-09-12",
+          "title": "Column: Bij nacht en ontij met Leo Quack"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/delft.jpg",
+        "alt": "Sfeerbeeld van Delft",
+        "credit": "image/photo was taken by Wikipedia and Wikimedia Commons user Ludwig Schneider. I would appreciate being notified if you",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Delft_Oude_Kerk_123.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/delft/"
+    },
+    {
+      "id": "den-haag",
+      "city": "Den Haag",
+      "province": "Zuid-Holland",
+      "lat": 52.0705,
+      "lon": 4.3007,
+      "x": 267.4,
+      "y": 603.0,
+      "status": "actief",
+      "name": "Lotte Ottevanger",
+      "role": "Nachtburgemeester",
+      "since": "2025",
+      "website": null,
+      "tags": [
+        "inclusie",
+        "veiligheid",
+        "hologram"
+      ],
+      "blurb": "Kunstenaar, filmmaker en kunstdocent. Sinds oktober 2025 de nachtburgemeester van Den Haag; sinds juli 2026 staat ze als hologram op Den Haag Centraal.",
+      "sources": [
+        {
+          "label": "Den Haag FM",
+          "url": "https://www.denhaagfm.nl/dhfm/5019351/nieuwe-nachtburgemeester-lotte-ottevanger-een-veiligere-nacht-inclusie-en-diverser-aanbod",
+          "date": "2025-10-03",
+          "title": "Nieuwe Nachtburgemeester Lotte Ottevanger: een veiligere nacht, inclusie en diverser aanbod"
+        },
+        {
+          "label": "Den Haag FM",
+          "url": "https://www.denhaagfm.nl/dhfm/5126609/haagse-nachtburgemeester-nu-ook-als-hologram-te-zien-op-den-haag-centraal",
+          "date": "2026-07-11",
+          "title": "Haagse nachtburgemeester nu ook als hologram te zien op Den Haag Centraal"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/den-haag.jpg",
+        "alt": "Sfeerbeeld van Den Haag",
+        "credit": "zoetnet",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Twilight_on_the_Hofvijver_(6709303981).jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/den-haag/"
+    },
+    {
+      "id": "dordrecht",
+      "city": "Dordrecht",
+      "province": "Zuid-Holland",
+      "lat": 51.8133,
+      "lon": 4.6901,
+      "x": 360.4,
+      "y": 703.3,
+      "status": "actief",
+      "name": "Juno Rissema",
+      "role": "Nachtburgemeester",
+      "since": "2019",
+      "website": null,
+      "tags": [
+        "poëzie",
+        "drechtsteden",
+        "nacht"
+      ],
+      "blurb": "Al sinds minstens 2019 nachtburgemeester van Dordrecht. Schrijft en publiceert ook poëzie.",
+      "sources": [
+        {
+          "label": "Dordrecht Nieuws",
+          "url": "https://www.dordrechtnieuws.nl/nieuws/nachtburgemeester-van-dordrecht-juno-39-al-mijn-dromen-komen-uit",
+          "date": "2026-04-27",
+          "title": "Nachtburgemeester van Dordrecht Juno (39)"
+        },
+        {
+          "label": "RTV Dordrecht",
+          "url": "https://www.rtvdordrecht.nl/nieuws/eerste-dichtbundel-nachtburgemeester-uit",
+          "date": "2019-03-29",
+          "title": "Eerste dichtbundel nachtburgemeester uit"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/dordrecht.jpg",
+        "alt": "Sfeerbeeld van Dordrecht",
+        "credit": "Frans Berkelaar",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Dordrecht_met_de_Grote_Kerk_of_Onze-Lieve-Vrouwekerk_(51177376758).jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/dordrecht/"
+    },
+    {
+      "id": "eindhoven",
+      "city": "Eindhoven",
+      "province": "Noord-Brabant",
+      "lat": 51.4416,
+      "lon": 5.4697,
+      "x": 546.8,
+      "y": 848.2,
+      "status": "collectief",
+      "name": "Nachtcollectief Eindhoven",
+      "role": "Collectief",
+      "since": null,
+      "website": "https://nachtcollectiefeindhoven.nl/",
+      "tags": [
+        "design",
+        "techno",
+        "nachtambassade"
+      ],
+      "blurb": "Geen nachtburgemeester. Het Nachtcollectief Eindhoven neemt de rol over en organiseert onder meer het jaarlijkse Debat van de Nacht.",
+      "sources": [
+        {
+          "label": "Eindhoven Vandaag",
+          "url": "https://www.eindhovenvandaag.nl/nieuws/nachtcollectief-wijst-de-weg-om-de-eindhovense-nacht-te-laten-bruisen",
+          "date": "2025-07-04",
+          "title": "Nachtcollectief wijst de weg om de Eindhovense nacht te laten bruisen (overgenomen van AD)"
+        },
+        {
+          "label": "Nachtcollectief Eindhoven",
+          "url": "https://nachtcollectiefeindhoven.nl/",
+          "date": "2026-01-29",
+          "title": "Nachtcollectief Eindhoven - Debat van de nacht 29 januari 2026"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/eindhoven.jpg",
+        "alt": "Sfeerbeeld van Eindhoven",
+        "credit": "Steven Lek",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Eindhoven_Bijenkorf_night.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/eindhoven/"
+    },
+    {
+      "id": "enschede",
+      "city": "Enschede",
+      "province": "Overijssel",
+      "lat": 52.2215,
+      "lon": 6.8937,
+      "x": 887.1,
+      "y": 544.1,
+      "status": "actief",
+      "name": "Annebel Bunt",
+      "role": "Nachtburgemeester",
+      "since": "2022",
+      "website": null,
+      "tags": [
+        "twente",
+        "nachtraad",
+        "podia"
+      ],
+      "blurb": "Sinds 2022 de nachtburgemeester van Enschede. In april 2026 presenteerde de stad een nieuwe onafhankelijke nachtraad.",
+      "sources": [
+        {
+          "label": "1Twente",
+          "url": "https://www.1twente.nl/artikel/1992256/annebel-bunt-is-de-nieuwe-nachtburgemeester-van-enschede-begin-met-een-fatsoenlijke-nachtclub",
+          "date": "2022-03-28",
+          "title": "Annebel Bunt is de nieuwe nachtburgemeester van Enschede: 'Begin met een fatsoenlijke nachtclub'"
+        },
+        {
+          "label": "1Twente",
+          "url": "https://www.1twente.nl/highlights/6089614/__temp_hznjhylyadbdfpicmpzhuzkjhemtqfngvesp",
+          "date": "2026-04-09",
+          "title": "Enschede zet volgende stap naar sterk en veilig nachtleven met een nachtraad | Nachtburgemeester Annebel Bunt"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/enschede.jpg",
+        "alt": "Sfeerbeeld van Enschede",
+        "credit": "Edson Hiroshi Aoki",
+        "license": "Public domain",
+        "licenseUrl": "",
+        "source": "https://commons.wikimedia.org/wiki/File:Enschede_Oude_Markt.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/enschede/"
+    },
+    {
+      "id": "gouda",
+      "city": "Gouda",
+      "province": "Zuid-Holland",
+      "lat": 52.0116,
+      "lon": 4.7106,
+      "x": 365.3,
+      "y": 626.0,
+      "status": "actief",
+      "name": "Nick van Zon",
+      "role": "Nachtburgemeester",
+      "since": "2021",
+      "website": null,
+      "tags": [
+        "veiligheid",
+        "lhbtiq+",
+        "uitgaan"
+      ],
+      "blurb": "Sinds november 2021 nachtburgemeester van Gouda, voor onbepaalde tijd. In februari 2026 nog in functie.",
+      "sources": [
+        {
+          "label": "Zo Gouds",
+          "url": "https://zogouds.nl/nieuws/waar-zitis-en-wat-doet-onze-nachtburgemeester",
+          "date": "2026-02-07",
+          "title": "Waar zit/is en wat doet onze Nachtburgemeester?"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/gouda.jpg",
+        "alt": "Sfeerbeeld van Gouda",
+        "credit": "Marianne Cornelissen-Kuyt",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Gouda-Stadhuis-07.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/gouda/"
+    },
+    {
+      "id": "groningen",
+      "city": "Groningen",
+      "province": "Groningen",
+      "lat": 53.2194,
+      "lon": 6.5665,
+      "x": 808.9,
+      "y": 154.9,
+      "status": "actief",
+      "name": "Misha Pchenitchnikov",
+      "role": "Nachtburgemeester",
+      "since": "2025",
+      "website": null,
+      "tags": [
+        "studentennacht",
+        "nachtdebat",
+        "veiligheid"
+      ],
+      "blurb": "Sinds januari 2025 voor vier jaar verkozen; opvolger van Merlijn Poolman. Naast hem bestaat de Groningse nachtraad.",
+      "sources": [
+        {
+          "label": "OOGTV",
+          "url": "https://www.oogtv.nl/2025/01/misha-pchenitchnikov-is-de-komende-vier-jaar-de-nachtburgemeester-van-groningen/",
+          "date": "2025-01-10",
+          "title": "Misha Pchenitchnikov is de komende vier jaar nachtburgemeester van Groningen"
+        },
+        {
+          "label": "RTV Noord",
+          "url": "https://www.rtvnoord.nl/politiek/RX-900/campagne-om-groningse-nacht-veiliger-te-maken-gelanceerd-dit-is-hoe-jij-kan-helpen",
+          "date": "2025-12-12",
+          "title": "Campagne om Groningse nacht veiliger te maken gelanceerd: 'Dit is hoe jij kan helpen'"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/groningen.jpg",
+        "alt": "Sfeerbeeld van Groningen",
+        "credit": "www.Pixel.la Free Stock Photos",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:Night_in_Groningen_(24242513501).jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/groningen/"
+    },
+    {
+      "id": "haarlem",
+      "city": "Haarlem",
+      "province": "Noord-Holland",
+      "lat": 52.3874,
+      "lon": 4.6462,
+      "x": 350.0,
+      "y": 479.4,
+      "status": "collectief",
+      "name": "Nachtwacht Haarlem",
+      "role": "Collectief",
+      "since": "2020",
+      "website": "https://nachtwachthaarlem.nl/",
+      "tags": [
+        "collectief",
+        "nachtwacht",
+        "cultuur"
+      ],
+      "blurb": "Geen individuele burgemeester: sinds 2020 draagt de Nachtwacht Haarlem de nacht als collectief, met onder meer de Week van de Haarlemse Nacht.",
+      "sources": [
+        {
+          "label": "NH Nieuws",
+          "url": "https://www.nhnieuws.nl/nieuws/261479/geen-nachtburgemeester-maar-een-nachtwacht-in-haarlem",
+          "date": "2020-02-06",
+          "title": "'Geen nachtburgemeester, maar een Nachtwacht in Haarlem'"
+        },
+        {
+          "label": "Nachtwacht Haarlem",
+          "url": "https://nachtwachthaarlem.nl/",
+          "date": null,
+          "title": "Nachtwacht Haarlem - Week van de Haarlemse Nacht 2 t/m 8 maart 2026"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/haarlem.jpg",
+        "alt": "Sfeerbeeld van Haarlem",
+        "credit": "Michielverbeek",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Haarlem,_het_Teylermuseum_RM315441_en_de_Sint_Bavokerk_RM19264_vanaf_de_Korte_Spaarne_foto4_2015-01-04_10.05.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/haarlem/"
+    },
+    {
+      "id": "hengelo",
+      "city": "Hengelo",
+      "province": "Overijssel",
+      "lat": 52.2659,
+      "lon": 6.7931,
+      "x": 863.1,
+      "y": 526.8,
+      "status": "actief",
+      "name": "Lara Vos",
+      "role": "Nachtburgemeester",
+      "since": "2025",
+      "website": null,
+      "tags": [
+        "kunst",
+        "straatintimidatie",
+        "twente"
+      ],
+      "blurb": "Kunstenaar Lara Vos werd in april 2025 geïnstalleerd voor twee jaar; volgde Irma Bruggeman op.",
+      "sources": [
+        {
+          "label": "1Twente",
+          "url": "https://www.1twente.nl/artikel/5286633/kunstenaar-lara-vos-de-nieuwe-nachtburgemeester-van-hengelo-ik-zie-veel-mogelijkheden",
+          "date": "2025-04-04",
+          "title": "Kunstenaar Lara Vos de nieuwe nachtburgemeester van Hengelo"
+        },
+        {
+          "label": "Oost",
+          "url": "https://www.oost.nl/nieuws/3544101/nachtburgemeester-gaat-strijd-aan-tegen-straatintimidatie-wees-een-held",
+          "date": "2025-07-18",
+          "title": "Nachtburgemeester gaat strijd aan tegen straatintimidatie"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/hengelo.jpg",
+        "alt": "Sfeerbeeld van Hengelo",
+        "credit": "Steven Lek",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Markt_Hengelo_2019_2.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/hengelo/"
+    },
+    {
+      "id": "leiden",
+      "city": "Leiden",
+      "province": "Zuid-Holland",
+      "lat": 52.1601,
+      "lon": 4.497,
+      "x": 314.3,
+      "y": 568.0,
+      "status": "collectief",
+      "name": "Leidse Nachtraad",
+      "role": "Collectief",
+      "since": null,
+      "website": "https://www.leidsenachtraad.nl/",
+      "tags": [
+        "nachtraad",
+        "actieplan",
+        "studentenstad"
+      ],
+      "blurb": "Geen nachtburgemeester. De Leidse Nachtraad stelde in opdracht van de gemeente het Actieplan Nachtcultuur 2025-2027 op.",
+      "sources": [
+        {
+          "label": "Sleutelstad",
+          "url": "https://sleutelstad.nl/2025/12/19/leiden-presenteert-plan-voor-levendige-en-veilige-nachtcultuur/",
+          "date": "2025-12-19",
+          "title": "Leiden presenteert plan voor levendige en veilige nachtcultuur"
+        },
+        {
+          "label": "Leidse Nachtraad",
+          "url": "https://www.leidsenachtraad.nl/",
+          "date": null,
+          "title": "De Leidse Nachtraad"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/leiden.jpg",
+        "alt": "Sfeerbeeld van Leiden",
+        "credit": "Erik Zachte",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Leiden_at_night_Maresingel.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/leiden/"
+    },
+    {
+      "id": "maastricht",
+      "city": "Maastricht",
+      "province": "Limburg",
+      "lat": 50.8514,
+      "lon": 5.6909,
+      "x": 599.7,
+      "y": 1078.4,
+      "status": "vacant",
+      "name": null,
+      "role": "Geen burgemeester",
+      "since": null,
+      "website": null,
+      "tags": [
+        "pilot",
+        "limburg",
+        "raad"
+      ],
+      "blurb": "Nog geen nachtburgemeester: de raad nam in juli 2026 een pilot aan. Het college komt in het vierde kwartaal met een uitgewerkt voorstel.",
+      "sources": [
+        {
+          "label": "Gemeenteraad Maastricht",
+          "url": "https://maastricht.parlaeus.nl/user/showdoc/env=help/action=view/id=8880a8a0aa82aa0208aa80ae93ea1e2f/type=pdf/15.1_MOED_-_Amendement_-_Pilot_Nachtburgemeester.pdf",
+          "date": "2026-07-07",
+          "title": "Amendement M:OED - Pilot Nachtburgemeester (raadsvergadering 7 juli 2026)"
+        },
+        {
+          "label": "Gemeenteraad Maastricht",
+          "url": "https://maastricht.parlaeus.nl/user/showdoc/env=help/action=view/id=28a02822082aa02808aa280eb865dc28/type=pdf/Besluitenlijst_Raadsvergadering_7_juli_2026.pdf",
+          "date": "2026-07-07",
+          "title": "Besluitenlijst Gemeenteraad Maastricht 7 juli 2026 (amendement 15.1 aangenomen)"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/maastricht.jpg",
+        "alt": "Sfeerbeeld van Maastricht",
+        "credit": "Mark Ahsmann",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20140525_Maastricht;_Sint-Janskerk_and_Sint-Servaasbasilica_at_dusk.JPG",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/maastricht/"
+    },
+    {
+      "id": "nijmegen",
+      "city": "Nijmegen",
+      "province": "Gelderland",
+      "lat": 51.8126,
+      "lon": 5.8372,
+      "x": 634.6,
+      "y": 703.6,
+      "status": "actief",
+      "name": "Boas Theunisse",
+      "role": "Nachtburgemeester",
+      "since": "2026",
+      "website": "https://www.nachtburgemeesternijmegen.nl/",
+      "tags": [
+        "nachtcollectief",
+        "storytelling",
+        "onderzoek"
+      ],
+      "blurb": "Boas Theunisse (25) werd in maart 2026 aangekondigd en startte in mei met een team van drie: onderzoek, financiën en storytelling.",
+      "sources": [
+        {
+          "label": "Nachtburgemeester Nijmegen",
+          "url": "https://www.nachtburgemeesternijmegen.nl/nieuwe-nachtburgemeester-nijmegen-en-team-zijn-bekend",
+          "date": "2026-03-26",
+          "title": "Nieuwe nachtburgemeester Nijmegen en team zijn bekend"
+        },
+        {
+          "label": "Omroep Gelderland",
+          "url": "https://www.gld.nl/nieuws/8457554/dit-is-de-nieuwe-nachtburgemeester-van-nijmegen",
+          "date": "2026-03-26",
+          "title": "Dit is de nieuwe nachtburgemeester van Nijmegen"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/nijmegen.jpg",
+        "alt": "Sfeerbeeld van Nijmegen",
+        "credit": "Erik1980",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Waalbrug_vanuit_de_haven.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/nijmegen/"
+    },
+    {
+      "id": "rotterdam",
+      "city": "Rotterdam",
+      "province": "Zuid-Holland",
+      "lat": 51.9244,
+      "lon": 4.4777,
+      "x": 309.7,
+      "y": 660.0,
+      "status": "actief",
+      "name": "Thys Boer",
+      "role": "Nachtburgemeester",
+      "since": "2025",
+      "website": null,
+      "tags": [
+        "nachtcultuur",
+        "cultuurprijs",
+        "n8w8"
+      ],
+      "blurb": "Sinds september 2025 de eerste Rotterdamse nachtburgemeester sinds Jules Deelder. Won in 2026 de Rotterdamse Cultuurprijs.",
+      "sources": [
+        {
+          "label": "Open Rotterdam",
+          "url": "https://openrotterdam.nl/erkenning-voor-het-nachtleven-thys-boer-wint-rotterdamse-cultuurprijs/",
+          "date": "2026-09-09",
+          "title": "Erkenning voor het nachtleven: Thys Boer wint Rotterdamse Cultuurprijs"
+        },
+        {
+          "label": "NPO Radio 1",
+          "url": "https://www.nporadio1.nl/fragmenten/spraakmakers/01a065f1-7ab8-7181-ae11-be4b46016866/2026-09-03-thys-boer-over-een-jaar-nachtburgemeesterschap-in-rotterdam",
+          "date": "2026-09-03",
+          "title": "Thys Boer over een jaar nachtburgemeesterschap in Rotterdam"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/rotterdam.jpg",
+        "alt": "Sfeerbeeld van Rotterdam",
+        "credit": "Michielverbeek",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Rotterdam,_de_Erasmusbrug_en_de_Kop_van_Zuid_IMG_0684_2022-03-27_20.24.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/rotterdam/"
+    },
+    {
+      "id": "s-hertogenbosch",
+      "city": "'s-Hertogenbosch",
+      "province": "Noord-Brabant",
+      "lat": 51.6978,
+      "lon": 5.3037,
+      "x": 507.1,
+      "y": 748.3,
+      "status": "vacant",
+      "name": null,
+      "role": "Geen burgemeester",
+      "since": null,
+      "website": null,
+      "tags": [
+        "duo",
+        "brabant",
+        "afscheid"
+      ],
+      "blurb": "Geen nachtburgemeester: het duo-nachtburgemeesterschap eindigde in januari 2026. Een opvolger is niet bevestigd.",
+      "sources": [
+        {
+          "label": "AD",
+          "url": "https://drimble.nl/regio/noord-brabant/den-bosch/105368719/bossche-nachtburgemeesters-nemen-afscheid-de-ruimte-om-te-falen-was-klein.html",
+          "date": "2026-01-10",
+          "title": "Bossche nachtburgemeesters nemen afscheid"
+        },
+        {
+          "label": "AD",
+          "url": "https://www.ad.nl/den-bosch/bossche-nachtburgemeesters-nemen-afscheid-de-ruimte-om-te-falen-was-klein~a6aa90af/",
+          "date": "2026-01-10",
+          "title": "Bossche nachtburgemeesters nemen afscheid (AD)"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/s-hertogenbosch.jpg",
+        "alt": "Sfeerbeeld van ’s-Hertogenbosch",
+        "credit": "Gerd Eichmann",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%27s-Hertogenbosch-Sint-Janskathedraal-04-Ostchor-2010-gje.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/s-hertogenbosch/"
+    },
+    {
+      "id": "utrecht",
+      "city": "Utrecht",
+      "province": "Utrecht",
+      "lat": 52.0907,
+      "lon": 5.1214,
+      "x": 463.5,
+      "y": 595.1,
+      "status": "collectief",
+      "name": "Nachtoverleg Utrecht",
+      "role": "Collectief",
+      "since": null,
+      "website": null,
+      "tags": [
+        "nachtvisie",
+        "collectief",
+        "nachtloket"
+      ],
+      "blurb": "Geen nachtburgemeester. Het Nachtoverleg is een collectief netwerk van ondernemers en gemeente, met een nachtvisie 2030 en een nachtloket.",
+      "sources": [
+        {
+          "label": "RTV Utrecht",
+          "url": "https://www.rtvutrecht.nl/nieuws/2019113/utrecht-moet-weer-een-nachtburgemeester-krijgen",
+          "date": "2020-02-07",
+          "title": "'Utrecht moet weer een nachtburgemeester krijgen'"
+        },
+        {
+          "label": "3voor12 Lokaal",
+          "url": "https://3voor12lokaal.vpro.nl/artikelen/utrecht-presenteert-nachtvisie-drie-nieuwe-clubs-nachtspreekuur-en-meer-sociale-veiligheid",
+          "date": "2023-02-18",
+          "title": "Utrecht presenteert nachtvisie: drie nieuwe clubs, nachtspreekuur en meer sociale veiligheid"
+        },
+        {
+          "label": "Civicstat",
+          "url": "https://www.civicstat.nl/nl/gemeenten/utrecht/beloften/cf7be20e-b197-419e-8358-98310c803216",
+          "date": null,
+          "title": "De nachtcultuur in Utrecht beschermen met een nachtvisie en nachtburgemeester (verkiezingsprogramma Student&Starter 2026)"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/utrecht.jpg",
+        "alt": "Sfeerbeeld van Utrecht",
+        "credit": "Michielverbeek",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Utrecht,_de_Domtoren_(RM36075)_vanaf_de_Oudegracht_230_ongeveer_foto5_2015-11-01_08.56.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/utrecht/"
+    },
+    {
+      "id": "wageningen",
+      "city": "Wageningen",
+      "province": "Gelderland",
+      "lat": 51.9692,
+      "lon": 5.6654,
+      "x": 593.6,
+      "y": 642.5,
+      "status": "actief",
+      "name": "Lars Verhoeff",
+      "role": "Nachtburgemeester",
+      "since": "2025",
+      "website": null,
+      "tags": [
+        "studentenstad",
+        "voedsel",
+        "nacht"
+      ],
+      "blurb": "Sinds de nacht van 21 op 22 december 2025 nachtburgemeester van Wageningen; volgde Tim Horsting op.",
+      "sources": [
+        {
+          "label": "Stad Wageningen",
+          "url": "https://www.stadwageningen.nl/lokaal/lokaal/1235597/nieuwe-nachtburgemeester-feestelijk-ingeluid-met-muziek-en-po-euml-zie-op-de-langste-nacht",
+          "date": "2025-12-18",
+          "title": "Nieuwe nachtburgemeester feestelijk ingeluid"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/wageningen.jpg",
+        "alt": "Sfeerbeeld van Wageningen",
+        "credit": "Vincent",
+        "license": "Public domain",
+        "licenseUrl": "",
+        "source": "https://commons.wikimedia.org/wiki/File:Wageningen_University_-_Building_Lumen.JPG",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/wageningen/"
+    },
+    {
+      "id": "zwolle",
+      "city": "Zwolle",
+      "province": "Overijssel",
+      "lat": 52.5168,
+      "lon": 6.083,
+      "x": 693.4,
+      "y": 428.9,
+      "status": "actief",
+      "name": "Ingmar Miedema",
+      "role": "Nachtburgemeester",
+      "since": "2026",
+      "website": null,
+      "tags": [
+        "rafelrandjes",
+        "nachtcultuur",
+        "podia"
+      ],
+      "blurb": "Sinds maart 2026 de nieuwe nachtburgemeester van Zwolle; opvolger van het duo Linda Tiesma en Rowan van Drogen.",
+      "sources": [
+        {
+          "label": "Zwolle Vandaag",
+          "url": "https://www.zwollevandaag.nl/nieuws/dit-is-de-nieuwe-nachtburgemeester-van-zwolle-ik-wil-de-rafelrandjes-behouden",
+          "date": "2026-03-15",
+          "title": "Dit is de nieuwe nachtburgemeester van Zwolle"
+        }
+      ],
+      "checked": "2026-11-21",
+      "verified": true,
+      "note": null,
+      "photo": {
+        "src": "/images/cities/zwolle.jpg",
+        "alt": "Sfeerbeeld van Zwolle",
+        "credit": "Michielverbeek",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Zwolle,_kanon_bij_de_Sassenpoort_positie1_foto3_2016-06-05_10.20.jpg",
+        "kind": "city"
+      },
+      "alert": null,
+      "path": "/stad/zwolle/"
+    }
+  ]
+}

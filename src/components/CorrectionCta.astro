@@ -1,0 +1,31 @@
+---
+import { counts } from '../lib/cities';
+---
+<section class="section correct surface-ink" id="correctie" aria-labelledby="corrTitle">
+  <div class="wrap correct__grid">
+    <div class="correct__intro">
+      <p class="kicker" data-reveal>Correcties</p>
+      <h2 class="display display--sm" id="corrTitle" data-reveal>Klopt er<br />iets niet?<br /><em>Dan horen we het.</em></h2>
+      <p class="lead" data-reveal>Dit register is alleen betrouwbaar als het klopt. Meld een fout, een ontbrekende stad of een wijziging. We controleren elke melding en passen het register aan met bron en datum.</p>
+      <ul class="correct__meta" data-reveal>
+        <li>Geen voordrachten</li>
+        <li>Wel onderbouwing</li>
+        <li>Reactie binnen 5 werkdagen</li>
+      </ul>
+      <p class="correct__mail" data-reveal>Liever mailen? <a href="mailto:hallo@nachtburgermeester.com">hallo@nachtburgermeester.com</a></p>
+    </div>
+
+    <div class="correct__card" data-reveal>
+      <div class="correct__card-top"><span>Het register</span><span>{counts.total} vermeldingen</span></div>
+      <p class="correct__big">{counts.actief}<span>burgemeesters</span></p>
+      <p class="correct__sub">{counts.collectief} collectieven · {counts.vacant} steden zonder</p>
+      <ul class="correct__steps">
+        <li><b>01</b> Je meldt stad, fout en bron.</li>
+        <li><b>02</b> Wij controleren bij gemeente of lokale bron.</li>
+        <li><b>03</b> Het profiel wordt aangepast met datum.</li>
+      </ul>
+      <a class="btn btn--acid btn--lg" href="/correcties/">Meld een correctie <span aria-hidden="true">↗</span></a>
+      <p class="correct__note">Geen voordrachten. Geen discussie. Wel een betere bron.</p>
+    </div>
+  </div>
+</section>

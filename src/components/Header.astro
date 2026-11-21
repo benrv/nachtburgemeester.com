@@ -1,0 +1,67 @@
+---
+const path = Astro.url.pathname;
+const isHome = path === '/';
+const nav = [
+  { href: '/#kaart', label: 'Kaart', key: 'kaart' },
+  { href: '/#register', label: 'Register', key: 'register' },
+  { href: '/#uitgelicht', label: 'Uitgelicht', key: 'uitgelicht' },
+  { href: '/methode/', label: 'Methode', key: 'methode' }
+];
+const current = path.startsWith('/methode') ? 'methode' : path.startsWith('/correcties') ? 'correcties' : '';
+---
+<header class="site-head" id="siteHead">
+  <div class="site-head__inner">
+    <a class="brand" href="/" aria-label="Nachtregister — naar de homepage">
+      <span class="brand__mark" aria-hidden="true">N<span>∶</span>B</span>
+      <span class="brand__txt"><strong>NACHTREGISTER</strong><small>Nederland · 2026</small></span>
+    </a>
+
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      {nav.map((item) => (
+        <a href={item.href} aria-current={current === item.key ? 'page' : undefined}>{item.label}</a>
+      ))}
+    </nav>
+
+    <div class="head-right">
+      <div class="clock" aria-label="Lokale tijd">
+        <span class="clock__time" id="clock">--:--<em>:--</em></span>
+        <span class="clock__city">Amsterdam</span>
+      </div>
+
+      <button class="sky-btn" id="skyBtn" type="button" aria-label="Licht en tijd kiezen" aria-expanded="false" aria-controls="skyMenu">
+        <span class="sky-btn__dot" aria-hidden="true"></span>
+        <span class="sky-btn__txt"><small>Licht</small><b id="skyBtnLabel">Nacht</b></span>
+      </button>
+
+      <a class="btn btn--acid head-cta" href="/correcties/">Meld een correctie <span aria-hidden="true">↗</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav">Menu</button>
+    </div>
+  </div>
+
+  <div class="sky-menu" id="skyMenu" hidden>
+    <p class="sky-menu__title">Licht in Nederland</p>
+    <button type="button" data-sky-mode="auto" class="is-on"><span>Automatisch</span><small id="skyAutoLabel">Nacht</small></button>
+    <button type="button" data-sky-mode="dawn"><span>Dageraad</span><small>ochtend</small></button>
+    <button type="button" data-sky-mode="day"><span>Dag</span><small>overdag</small></button>
+    <button type="button" data-sky-mode="dusk"><span>Schemer</span><small>avond</small></button>
+    <button type="button" data-sky-mode="night"><span>Nacht</span><small>nacht</small></button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <a href="/#kaart">Kaart <span>01</span></a>
+  <a href="/#register">Register <span>02</span></a>
+  <a href="/#uitgelicht">Uitgelicht <span>03</span></a>
+  <a href="/methode/">Methode <span>04</span></a>
+  <a href="/correcties/">Correcties <span>05</span></a>
+  <div class="mobile-sky" role="group" aria-label="Licht">
+    <span>Licht</span>
+    <button type="button" data-sky-mode="auto" class="is-on">Auto</button>
+    <button type="button" data-sky-mode="dawn">Dageraad</button>
+    <button type="button" data-sky-mode="day">Dag</button>
+    <button type="button" data-sky-mode="dusk">Schemer</button>
+    <button type="button" data-sky-mode="night">Nacht</button>
+  </div>
+  <a class="mobile-nav__cta" href="/correcties/">Meld een correctie <span>↗</span></a>
+  <p>Nachtregister · Nederland · 2026<br>Met bron, datum en verhaal.</p>
+</div>
