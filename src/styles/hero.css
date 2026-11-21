@@ -1,0 +1,93 @@
+/* ============================================================
+   HERO — één monumentale titel en één symbool
+   ============================================================ */
+
+.hero--monument{
+  min-height:100svh;
+  padding:calc(var(--head-h) + clamp(26px,4vw,54px)) 0 clamp(22px,3vw,38px);
+  justify-content:center;
+}
+.hero--monument .hero__wrap{
+  grid-template-columns:minmax(0,1.23fr) minmax(300px,.68fr);
+  align-items:center;
+  gap:clamp(24px,4.2vw,72px);
+  flex:0 1 auto;
+  width:min(100% - var(--gutter)*2,1720px);
+}
+.hero__main--monument{display:flex;align-items:center;min-width:0}
+.hero__title--monument{
+  width:100%;
+  margin:0;
+  font-size:clamp(3.4rem,12.2vw,16rem);
+  line-height:.84;
+  letter-spacing:-.07em;
+  font-variation-settings:"wght" 900,"wdth" 80,"opsz" 96;
+  position:relative;
+  z-index:2;
+}
+.hero__title--monument .line{
+  display:block;
+  overflow:visible;
+  padding-bottom:.012em;
+  white-space:nowrap;
+}
+.hero__title--monument .line>.word{
+  display:inline-block;
+  width:auto;
+}
+.hero__title--monument .word{
+  position:relative;
+  display:inline-block;
+  color:var(--c-fg);
+  text-shadow:
+    .018em .018em 0 var(--c-acid),
+    .038em .038em 0 var(--c-flare),
+    .065em .065em 0 rgba(10,10,11,.55);
+  transition:transform .35s var(--ease),color .3s;
+}
+.hero__title--monument:hover .word{
+  transform:skewX(-2.5deg) translateX(3px);
+  text-shadow:
+    -.018em .008em 0 var(--c-lilac),
+    .024em -.012em 0 var(--c-flare),
+    .05em .05em 0 var(--c-acid),
+    .075em .075em 0 rgba(10,10,11,.5);
+}
+.hero__aside--monument{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  min-width:0;
+}
+.hero__aside--monument .nightmayor{max-width:min(100%,480px)}
+
+
+/* dagstand: donkere letters, acid en rood als diepte */
+html[data-sky="day"] .hero__title--monument .word{
+  color:#0A0A0B;
+  text-shadow:
+    .018em .018em 0 var(--c-acid),
+    .038em .038em 0 var(--c-flare),
+    .065em .065em 0 rgba(10,10,11,.3);
+}
+
+@media (max-width:1180px){
+  .hero--monument{min-height:0;padding-bottom:42px}
+  .hero--monument .hero__wrap{grid-template-columns:1fr;gap:28px}
+  .hero__main--monument{display:block}
+  .hero__title--monument{font-size:clamp(2.9rem,16.6vw,10rem);line-height:.92}
+  .hero__aside--monument{width:min(82vw,320px);margin:0 auto}
+  .hero__aside--monument .nightmayor{max-width:100%}
+}
+@media (max-width:980px){
+  .hero__title--monument{font-size:clamp(2.9rem,16.6vw,10rem)}
+}
+@media (max-width:680px){
+  .hero--monument .hero__title--monument{font-size:clamp(2.55rem,17.6vw,5.8rem);line-height:1.02}
+  .hero__title--monument .word{text-shadow:.016em .016em 0 var(--c-acid),.034em .034em 0 var(--c-flare),.052em .052em 0 rgba(10,10,11,.5)}
+  .hero__aside--monument{width:min(82vw,320px)}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero__title--monument .word{animation:none!important;transform:none!important}
+}
