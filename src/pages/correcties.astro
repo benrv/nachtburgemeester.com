@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import CorrectionForm from '../components/CorrectionForm.astro';
+const endpoint = import.meta.env.PUBLIC_CORRECTION_ENDPOINT ?? '';
+---
+<Base
+  title="Meld een correctie | Nachtregister"
+  description="Klopt er iets niet in het nachtregister? Meld een fout, een ontbrekende stad of een wijziging. We controleren elke melding en passen aan met bron en datum."
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="page-hero__kicker">Correcties</p>
+      <h1 class="display display--sm">Klopt er<br />iets niet?<br /><em>Dan horen we het.</em></h1>
+      <p class="page-hero__lede">Dit register is alleen betrouwbaar als het klopt. Meld een fout, een ontbrekende stad of een wijziging. We controleren elke melding en passen het register aan met bron en datum.</p>
+      <p class="page-hero__meta"><span><i class="dot"></i> Geen voordrachten</span><span>Wel onderbouwing</span><span>Reactie binnen 5 werkdagen</span></p>
+    </div>
+  </section>
+
+  <section class="correct-page">
+    <div class="wrap correct-page__grid">
+      <div class="correct__intro">
+        <p class="kicker">Het formulier</p>
+        <h2 class="display display--sm" style="margin:18px 0 24px">Eén melding<br /><em>is genoeg.</em></h2>
+        <p class="lead">Beschrijf kort wat er niet klopt. Een link naar een gemeente, lokaal medium of de nachtburgemeester zelf is het beste bewijs. Zonder bron kunnen we een melding vaak niet verwerken.</p>
+
+        <div class="correct__help">
+          <h3>Wat gebeurt er met je melding?</h3>
+          <p>We controleren bij de gemeente, de nachtburgemeester of een lokale bron. Bij bevestiging passen we het profiel aan, met de nieuwe bron en datum. Bij twijfel publiceren we niet.</p>
+        </div>
+        <div class="correct__help">
+          <h3>Liever mailen?</h3>
+          <p><a href="mailto:hallo@nachtburgermeester.com">hallo@nachtburgermeester.com</a> — we reageren binnen vijf werkdagen.</p>
+        </div>
+        <div class="correct__help">
+          <h3>Geen voordrachten</h3>
+          <p>Dit register is informatief. We nemen geen kandidaten of verkiezingscampagnes op; alleen bevestigde, zittende burgemeesters en collectieven met een bron.</p>
+        </div>
+      </div>
+
+      <CorrectionForm endpoint={endpoint} />
+    </div>
+  </section>
+</Base>
