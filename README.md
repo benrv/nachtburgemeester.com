@@ -1,118 +1,109 @@
-# Nachtregister — productie
+# Nachtregister
 
-De productieversie van **nachtburgermeester.com**: een statische Astro-site met 22 stadsprofielen, een interactief register, een kaart, vier hemelstanden en een correctieflow.
+**De nacht heeft een burgemeester.**
 
-## Lokaal
+Nachtregister is een persoonlijk initiatief om de nachtburgemeesters van Nederland te inventariseren — en om ze een groter publiek te geven. Niet als officieel register, maar als één plek waar namen, steden, bronnen en verhalen samenkomen.
+
+De site staat live op **[benrv.github.io/nachtburgermeester.com](https://benrv.github.io/nachtburgermeester.com/)**. De custom domain `nachtburgermeester.com` wordt later gekoppeld.
+
+## Waarom dit bestaat
+
+Het begon met een simpele vraag: wie spreekt er eigenlijk voor de nacht?
+
+De nacht is geen gat in de dag. Het is de plek waar cultuur ontstaat, waar mensen samenkomen en waar de stad zich van een andere kant laat zien. Toch wordt er vaak over de nacht gesproken door mensen die er zelf nooit zijn. De nachtburgemeester is een van de mensen die dat gat probeert te dichten: als adviseur, verbinder of maker.
+
+In Nederland zijn er inmiddels op veel plekken van zulke rollen — officieel benoemd, zelf uitgeroepen of georganiseerd in een collectief. Maar er was geen actueel, openbaar overzicht met bronnen en controledata. Dat is dit register.
+
+Door de namen en verhalen op één plek te zetten, wordt de nachtburgemeester zichtbaarder. Voor bewoners, makers, journalisten, gemeenten en iedereen die de nacht serieus neemt.
+
+## Wat je hier vindt
+
+- **22 vermeldingen** met bron en controledatum.
+- **14 burgemeesters**, **4 collectieven** en **4 steden zonder** op dit moment.
+- Een interactieve kaart van Nederland.
+- Een doorzoekbaar register met filters op status en provincie.
+- Stadsprofielen met bronnen, achtergrond, mini-kaart en een correctielink.
+- Uitleg over de methode: geen naam zonder bron, geen wijziging zonder datum.
+
+De stand is **21 november 2026**. Den Haag heeft met **Lotte Ottevanger** een bevestigde burgemeester. In Amsterdam is **Freek Wallagh** de zittende burgemeester; zijn opvolger wordt op **26 november 2026** gekozen. Tilburg en Breda staan nog op de onderzoekslijst. Waar geen bevestigde bron is, staat niets — ook geen gerucht.
+
+## Hoe het register werkt
+
+Dit is geen gemeentelijk orgaan en geen overheidsregister. Het is een onafhankelijk, redactioneel overzicht.
+
+Elke vermelding heeft:
+
+- een **status**: burgemeester, collectief of geen burgemeester;
+- een **bron** met link en datum;
+- een **controledatum**;
+- waar mogelijk een **verhaal** over de rol, de stad en de mensen erachter.
+
+We publiceren liever minder dan iets onzekers. Klopt er iets niet? Gebruik het [correctieformulier](https://benrv.github.io/nachtburgermeester.com/correcties/) of mail **[hallo@nachtburgermeester.com](mailto:hallo@nachtburgermeester.com)**. We controleren elke melding en reageren binnen vijf werkdagen.
+
+## Bijdragen
+
+**Iedereen mag bijdragen om dit register verder te brengen.** Dat kan op verschillende manieren:
+
+- **Een correctie melden** — met bron en datum. Dat is de snelste manier om het register beter te maken.
+- **Een ontbrekende stad of rol aandragen** — alleen als je een bron kunt geven. Geen voordracht, geen campagne, geen “ik vind dat”.
+- **Een archiefstuk, besluit of lokaal artikel delen** — juist de minder voor de hand liggende bronnen maken dit register compleet.
+- **Een foto met rechten insturen** — een portret van de burgemeester (met toestemming) of een gelicenseerd stadsbeeld.
+- **Code of design bijdragen** — open een issue of pull request. Houd wijzigingen klein en controleer je build.
+- **Een tip geven** — een gemeente, een nachtcollectief, een festival of een persoon die we nog missen.
+
+Wat we **niet** doen: voordrachten organiseren, betaalde vermeldingen plaatsen, verkiezingscampagnes voeren of namen publiceren zonder bron.
+
+### Aan de slag als ontwikkelaar
+
+De site is gebouwd met [Astro](https://astro.build/) en draait statisch op GitHub Pages.
 
 ```bash
 npm install
-npm run dev        # http://localhost:4321
-npm run build      # data validatie + statische build naar dist/
-npm run preview    # preview van dist/
-npm run validate   # controleert src/data/cities.json
+npm run dev      # lokaal op http://localhost:4321
+npm run build    # data validatie + statische build naar dist/
+npm run preview  # preview van de build
+npm run validate # controleert src/data/cities.json
 ```
 
-## Structuur
+De belangrijkste bestanden:
 
-```
-src/
-  pages/
-    index.astro              homepage
-    stad/[slug].astro        22 stadsprofielen
-    methode.astro            methode & bronnen
-    correcties.astro         correctieformulier
-    over.astro               over dit register
-    privacy.astro            privacyverklaring
-    voorwaarden.astro        gebruiksvoorwaarden
-    disclaimer.astro         redactionele disclaimer
-    404.astro
-  components/                header, footer, hero, kaart, register, poster, formulier
-  data/
-    cities.json              22 gecontroleerde vermeldingen
-    map.json                 SVG-kaart van Nederland
-  lib/cities.ts              types, counts, datumformattering
-  styles/
-    base.css                 layout & componenten
-    theme.css                vier luchten, rook, beweging
-    site.css                 profielen, methode, correcties
-  scripts/site.js            zon, thema, rook, kaart, filters, formulier
-public/
-  fonts/                     self-hosted woff2
-  images/                    portret Freek Wallagh + 21 stadsbeelden (Wikimedia Commons)
-  og-default.png             1200×630 social image
-  favicon.svg, robots.txt
-scripts/validate-data.mjs    buildvalidatie
+```text
+src/data/cities.json      de 22 vermeldingen
+src/data/map.json         de SVG-kaart
+src/lib/cities.ts         types, tellingen en datumformattering
+src/pages/                homepage, profielen, methode, correcties, juridisch
+src/components/           header, footer, kaart, register, poster, formulier
+src/scripts/site.js       zon, thema, rook, kaart, filters en formulier
+scripts/validate-data.mjs bouwcontrole op bronnen, aantallen en foto's
+scripts/rewrite-base.mjs  padcorrectie voor de github.io-preview
 ```
 
-## Data
+De build faalt bij ontbrekende bronnen, verkeerde aantallen of een ontbrekend fotobestand. Draai daarom altijd `npm run build` vóór een pull request.
 
-`src/data/cities.json` is de bron van waarheid. Elke vermelding heeft:
+De deploy loopt via `.github/workflows/deploy.yml`. Zolang er geen `public/CNAME` is, bouwt de workflow voor de projectpagina op GitHub Pages. Zodra je een custom domain toevoegt, bouwt hij voor de root. Geen API-keys of geheimen in de repo.
 
-- `status`: `actief`, `collectief` of `vacant`
-- `name`, `since`, `role`
-- `sources[]` met label, URL, datum en titel
-- `checked` (ISO-datum)
-- optioneel `photo` met alt, credit, licentie en bron
-- optioneel `alert` (bijv. de Amsterdamse verkiezing)
+## Fotografie
 
-De build faalt bij ontbrekende bronnen, verkeerde aantallen, dubbele id's, ongeldige statussen of een ontbrekend fotobestand. Zie `scripts/validate-data.mjs`.
+- **Freek Wallagh** — portret door Vera de Kok, CC BY-SA 4.0, via Wikimedia Commons.
+- **21 stadsbeelden** — gelicenseerde sfeerbeelden van Wikimedia Commons, met fotograaf, licentie en bron onder elk profiel.
+- Stadsbeelden zijn **geen portretten** van de burgemeester; ze zijn herkenbaar van de stad en duidelijk als sfeerbeeld gelabeld.
 
-### Foto's
+Stuur je een portret in? Doe dat alleen met toestemming van de geportretteerde en de fotograaf, of met een vrije licentie. Bij twijfel kiezen we liever een stadsbeeld dan een foto zonder rechten.
 
-Het fotoslot is klaar. Gebruik alleen portretten met duidelijke rechten en vul `photo` in:
+## Gebruik
 
-```json
-"photo": {
-  "src": "/images/naam.jpg",
-  "alt": "Portret van …",
-  "credit": "Fotograaf",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-  "source": "https://commons.wikimedia.org/…"
-}
-```
+De teksten en het register zijn met zorg samengesteld. Citeren mag met bronvermelding en een link naar de betreffende pagina. Voor hergebruik van de dataset of grotere delen van de site: mail even, dan stemmen we dat af.
 
-Zonder foto gebruikt het profiel het typografische poster-systeem. Alle 22 profielen hebben nu een beeld: Amsterdam een portret (Freek Wallagh, Vera de Kok, CC BY-SA 4.0), de andere 21 een gelicenseerd stadsbeeld als **sfeerbeeld**, met fotograaf, licentie en bron onder de foto.
+Foto's vallen onder de licentie die bij de foto staat. De code staat publiek om aan bij te dragen. Wil je de site of dataset hergebruiken? Mail even, dan stemmen we bronvermelding en voorwaarden af. Door een pull request te sturen, geef je toestemming om je bijdrage op deze site te publiceren.
 
-## Correctieformulier
+## Contact
 
-Het formulier werkt zonder backend via een `mailto:`-fallback naar `hallo@nachtburgermeester.com`. Met **Cloudflare Email Routing** forward je dat adres gratis naar je eigen inbox. De bezoeker verstuurt de melding vanuit het eigen e-mailprogramma; er is geen formulierdienst nodig.
+- Correcties: [correctieformulier](https://benrv.github.io/nachtburgermeester.com/correcties/)
+- E-mail: [hallo@nachtburgermeester.com](mailto:hallo@nachtburgermeester.com)
+- Live: [benrv.github.io/nachtburgermeester.com](https://benrv.github.io/nachtburgermeester.com/)
+- Methode: [benrv.github.io/nachtburgermeester.com/methode/](https://benrv.github.io/nachtburgermeester.com/methode/)
+- GitHub: [github.com/benrv/nachtburgermeester.com](https://github.com/benrv/nachtburgermeester.com)
 
-Wil je later een echte formulierendpoint (zonder mailprogramma), zet dan een JSON-endpoint dat `{ city, correction, source, email, page }` accepteert als buildvariabele:
+Dit is een persoonlijk initiatief. Geen gemeente, geen overheidsregister, geen commercieel platform. Wel een poging om de nacht en de mensen die ervoor staan serieus te nemen.
 
-```bash
-PUBLIC_CORRECTION_ENDPOINT="https://formspree.io/f/xxxx" npm run build
-```
-
-De pagina toont dan een succesmelding in plaats van de mailto-flow.
-
-## Deploy op GitHub Pages
-
-De repo bevat `.github/workflows/deploy.yml`. GitHub Actions bouwt en publiceert `dist/` automatisch.
-
-1. Zet de inhoud van `site/` in een GitHub-repository (branch `main`).
-2. Repo → Settings → Pages → Source: **GitHub Actions**.
-3. Push naar `main`; de workflow bouwt en deployt.
-4. Repo → Settings → Pages → Custom domain: `nachtburgermeester.com`. (De site gebruikt absolute paden; een projectpagina op `github.io/repo` werkt daarom niet zonder custom domain.)
-5. DNS: apex A-records naar GitHub Pages (`185.199.108.153`, `.109.153`, `.110.153`, `.111.153`), `www` CNAME naar `<gebruiker>.github.io`. Zet deze records in Cloudflare DNS op **DNS only** (grijze wolk), anders kan GitHub Pages' SSL-certificaat haperen.
-6. Cloudflare Email Routing: voeg `hallo@nachtburgermeester.com` toe en forward naar je inbox. De MX/SPF-records van Cloudflare Email Routing staan los van de website-DNS.
-
-Canoniek domein: `https://nachtburgermeester.com`. GitHub Pages levert geen custom `_headers`; security headers stel je eventueel later in via een Cloudflare-proxy of Workers.
-
-## Juridisch
-
-De pagina’s `/privacy/`, `/voorwaarden/` en `/disclaimer/` staan klaar. Ze vermelden de handelsnaam en het e-mailadres. Laat de teksten voor livegang nog juridisch checken.
-
-## Controle voor livegang
-
-- [ ] 22 records nogmaals gecontroleerd; bron + datum.
-- [ ] Amsterdam bijwerken na de verkiezing van 26 november 2026.
-- [ ] Cloudflare Email Routing voor `hallo@` activeren en testen.
-- [ ] `og-default.png` en favicon controleren.
-- [ ] Sitemap/robots in Search Console.
-- [ ] Privacyverklaring en voorwaarden juridisch laten checken.
-- [ ] Portretrechten per foto vastleggen.
-
-## Status
-
-Productieklare statische site. De data is de stand van **21 november 2026**; de correctieflow is de route om die actueel te houden.
+**De nacht heeft een burgemeester. In 14 steden. Met naam, bron en datum.**
