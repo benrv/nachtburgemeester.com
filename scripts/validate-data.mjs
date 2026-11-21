@@ -7,6 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
 const data = read('src/data/cities.json');
 const map = read('src/data/map.json');
+const culture = read('src/data/den-haag-culture.json');
 const errors = [];
 const warnings = [];
 const statuses = new Set(['actief', 'collectief', 'vacant']);
@@ -48,6 +49,40 @@ for (const c of data.cities) {
   }
 }
 
+if (culture.city !== 'den-haag') errors.push('Cultuur: city moet den-haag zijn');
+if (!isDate(culture.updated)) errors.push('Cultuur: updated geen ISO-datum');
+if (!Array.isArray(culture.venues) || culture.venues.length < 3) errors.push('Cultuur: minimaal 3 plekken');
+if (!Array.isArray(culture.events) || culture.events.length < 3) errors.push('Cultuur: minimaal 3 events');
+const venueIds = new Set();
+for (const v of culture.venues || []) {
+  if (!v.id || !/^[a-z0-9-]+$/.test(v.id)) errors.push(`Cultuur ${v.id || '?'}: ongeldige id`);
+  if (venueIds.has(v.id)) errors.push(`Cultuur ${v.id}: dubbele id`);
+  venueIds.add(v.id);
+  if (!v.name || !v.type || !v.address) errors.push(`Cultuur ${v.id}: naam/type/adres mist`);
+  for (const key of ['website', 'agenda']) {
+    if (!v[key] || !/^https?:\/\//.test(v[key])) errors.push(`Cultuur ${v.id}: ${key} ongeldig`);
+  }
+  if (!v.description || v.description.length < 30) errors.push(`Cultuur ${v.id}: beschrijving te kort`);
+  if (!Array.isArray(v.tags) || v.tags.length < 2) errors.push(`Cultuur ${v.id}: minimaal 2 tags`);
+}
+let lastEvent = '';
+for (const e of culture.events || []) {
+  const where = e.title || e.date || '?';
+  if (!isDate(e.date)) errors.push(`Cultuur ${where}: datum ongeldig`);
+  if (!/^\d{2}:\d{2}$/.test(e.start || '')) errors.push(`Cultuur ${where}: starttijd ongeldig`);
+  if (e.end && !/^\d{2}:\d{2}$/.test(e.end)) errors.push(`Cultuur ${where}: eindtijd ongeldig`);
+  if (!e.title || !e.venue || !e.source) errors.push(`Cultuur ${where}: titel/venue/bron mist`);
+  if (!venueIds.has(e.venue)) errors.push(`Cultuur ${where}: onbekende venue ${e.venue}`);
+  if (e.locationVenue && !venueIds.has(e.locationVenue)) errors.push(`Cultuur ${where}: onbekende locationVenue ${e.locationVenue}`);
+  for (const key of ['url', 'ticket']) if (e[key] && !/^https?:\/\//.test(e[key])) errors.push(`Cultuur ${where}: ${key} ongeldig`);
+  const stamp = `${e.date}${e.start}`;
+  if (stamp < lastEvent) warnings.push(`Cultuur ${where}: events niet chronologisch`);
+  lastEvent = stamp;
+}
+for (const s of culture.sources || []) {
+  if (!s.label || !/^https?:\/\//.test(s.url || '')) errors.push('Cultuur: bron ongeldig');
+}
+
 const counts = data.cities.reduce((acc, c) => { acc[c.status]++; return acc; }, { actief: 0, collectief: 0, vacant: 0 });
 const metaCounts = data.meta.counts;
 for (const key of ['actief', 'collectief', 'vacant']) {
@@ -64,4 +99,4 @@ if (errors.length) {
   errors.forEach(e => console.error('  - ' + e));
   process.exit(1);
 }
-console.log(`✓ Data gevalideerd: ${data.cities.length} vermeldingen (${counts.actief} burgemeesters, ${counts.collectief} collectieven, ${counts.vacant} zonder), ${map.paths.length} kaartpaden.`);
+console.log(`✓ Data gevalideerd: ${data.cities.length} vermeldingen (${counts.actief} burgemeesters, ${counts.collectief} collectieven, ${counts.vacant} zonder), ${map.paths.length} kaartpaden, ${culture.venues.length} cultuurplekken en ${culture.events.length} events.`);

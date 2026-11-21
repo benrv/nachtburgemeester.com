@@ -1,0 +1,217 @@
+{
+  "city": "den-haag",
+  "updated": "2026-11-21",
+  "intro": "Drie plekken die de Haagse nacht vormgeven: van de Binckhorst tot het Laakkwartier. Dit is geen volledige lijst van de stad, maar een begin van de culturele kaart rond de nachtburgemeester.",
+  "venues": [
+    {
+      "id": "pip",
+      "name": "PIP",
+      "type": "Club · Garden · Expo",
+      "address": "Binckhorstlaan 36, 2516 BE Den Haag",
+      "website": "https://pipdenhaag.nl/",
+      "agenda": "https://pipdenhaag.nl/events/",
+      "instagram": "https://www.instagram.com/pipdenhaag/",
+      "description": "Club, tuin en exporuimte aan de Binckhorstlaan. PIP programmeert elektronische muziek, live acts en culturele experimenten — van clubnachten tot exposities en projecten.",
+      "tags": [
+        "elektronisch",
+        "club",
+        "expo",
+        "tuin"
+      ]
+    },
+    {
+      "id": "inter-city",
+      "name": "Inter-City",
+      "type": "Cultuurpark · 3 zalen · theater",
+      "address": "Lekstraat 160, 2515 VZ Den Haag",
+      "website": "https://inter-city.nl/",
+      "agenda": "https://inter-city.nl/events",
+      "instagram": "https://www.instagram.com/inter___city/",
+      "description": "Cultuurpark van 8.000 m² in de Binckhorst: drie zalen, een klein theater, café, twee buitenpleinen en een eigen bos. Sinds eind 2025 een plek voor muziek, kunst, sport en maatschappelijke initiatieven.",
+      "tags": [
+        "cultuurpark",
+        "theater",
+        "buiten",
+        "muziek"
+      ]
+    },
+    {
+      "id": "laak",
+      "name": "Club Laak",
+      "type": "Club · intiem · elektronisch",
+      "address": "Lulofsstraat 59, Den Haag",
+      "website": "https://laak.club/",
+      "agenda": "https://laak.club/agenda/",
+      "tickets": "https://club-laak.weticket.io",
+      "description": "Kleinschalige club aan het einde van de steeg, achter de metalen poort aan Lulofsstraat 59. Intieme setting, scherpe elektronische programmering en een publiek dat voor de muziek komt.",
+      "tags": [
+        "club",
+        "elektronisch",
+        "intiem",
+        "Laakkwartier"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "date": "2026-11-21",
+      "start": "23:59",
+      "end": "06:00",
+      "title": "Matties Haagsche Nacht",
+      "venue": "pip",
+      "note": "100% Haagse lineup",
+      "url": "https://ra.co/events/2565769",
+      "ticket": "https://pip.stager.co/shop/default/events/111696373",
+      "source": "RA"
+    },
+    {
+      "date": "2026-11-28",
+      "start": "23:00",
+      "end": "06:00",
+      "title": "The Crave Indoor at Inter-City",
+      "venue": "inter-city",
+      "url": "https://inter-city.nl/events/the-crave-indoor-at-inter-city",
+      "ticket": "https://pip.stager.co/shop/inter-city/events/111694673",
+      "source": "Inter-City",
+      "soldOut": true
+    },
+    {
+      "date": "2026-11-28",
+      "start": "23:59",
+      "end": "06:00",
+      "title": "PIP x PRSPCT",
+      "venue": "pip",
+      "note": "The Outside Agency · Sinister Souls · Thrasher · Deformer · Alienmia",
+      "url": "https://ra.co/events/2559840",
+      "ticket": "https://pip.stager.co/shop/default/events/111702002",
+      "source": "RA"
+    },
+    {
+      "date": "2026-12-05",
+      "start": "23:00",
+      "title": "Club Night",
+      "venue": "laak",
+      "note": "DJ Khabir · Emkay · Mike Midnight · Sekko · Standby_0 · Toilet by La Raña · Expo by Dekbass",
+      "url": "https://laak.club/agenda/",
+      "ticket": "https://club-laak.weticket.io",
+      "source": "Laak"
+    },
+    {
+      "date": "2026-12-12",
+      "start": "20:00",
+      "end": "00:00",
+      "title": "Cultuur Kartel",
+      "venue": "inter-city",
+      "note": "Liveshow · première",
+      "url": "https://inter-city.nl/events/cultuur-kartel",
+      "ticket": "https://pip.stager.co/shop/inter-city/events/111644936",
+      "source": "Inter-City"
+    },
+    {
+      "date": "2026-12-12",
+      "start": "23:59",
+      "end": "06:00",
+      "title": "PIP x TRESOR",
+      "venue": "pip",
+      "note": "Line-up TBA",
+      "url": "https://ra.co/events/2402479",
+      "ticket": "https://pip.stager.co/shop/default/events/111636817",
+      "source": "RA"
+    },
+    {
+      "date": "2026-12-18",
+      "start": "19:30",
+      "end": "23:00",
+      "title": "Jungle by Night",
+      "venue": "inter-city",
+      "note": "PAARD x Inter-City",
+      "url": "https://inter-city.nl/events/jungle-by-night",
+      "ticket": "https://www.paard.nl/event/jungle-by-night-19/",
+      "source": "Inter-City",
+      "soldOut": true
+    },
+    {
+      "date": "2026-12-18",
+      "start": "23:00",
+      "title": "Club Night",
+      "venue": "laak",
+      "note": "Stranger b2b JEANS · EMA · Urban Space Electronics · Annebel · JELLY · August · Ken-Ming b2b Ryan · De Het Boaz b2b Rrrrip9",
+      "url": "https://laak.club/agenda/",
+      "ticket": "https://club-laak.weticket.io",
+      "source": "Laak"
+    },
+    {
+      "date": "2026-12-18",
+      "start": "23:00",
+      "end": "05:00",
+      "title": "Latin Diaspora",
+      "venue": "pip",
+      "note": "DJ BABATR · YUCKY · VALILA b2b CALIXTA & more",
+      "url": "https://pipdenhaag.nl/events/",
+      "ticket": "https://pip.stager.co/shop/default/events/111670852",
+      "source": "PIP"
+    },
+    {
+      "date": "2026-12-19",
+      "start": "15:00",
+      "end": "01:00",
+      "title": "Colorado goes On Trail",
+      "venue": "inter-city",
+      "url": "https://inter-city.nl/events/colorado-goes-on-trail",
+      "ticket": "https://pip.stager.co/shop/inter-city",
+      "source": "Inter-City",
+      "soldOut": true
+    },
+    {
+      "date": "2026-12-19",
+      "start": "23:59",
+      "title": "Tanning in de Planning",
+      "venue": "pip",
+      "note": "Line-up TBA",
+      "url": "https://ra.co/events/2540598",
+      "ticket": "https://pip.stager.co/shop/default/events/111696522",
+      "source": "RA"
+    },
+    {
+      "date": "2026-12-26",
+      "start": "23:59",
+      "end": "06:00",
+      "title": "PIP presents X-MAS All Night Long w/ Sandrien",
+      "venue": "pip",
+      "note": "Sandrien · all night long",
+      "url": "https://ra.co/events/2402466",
+      "ticket": "https://pip.stager.co/shop/default/events/111636824",
+      "source": "RA"
+    },
+    {
+      "date": "2026-12-31",
+      "start": "22:00",
+      "title": "PIP presents NYE",
+      "venue": "pip",
+      "venueLabel": "PIP @ Inter-City",
+      "note": "New place · new time",
+      "url": "https://pipdenhaag.nl/events/",
+      "ticket": "https://pip.stager.co/shop/default/events/111708781",
+      "source": "PIP",
+      "locationVenue": "inter-city"
+    }
+  ],
+  "sources": [
+    {
+      "label": "PIP — agenda en events",
+      "url": "https://pipdenhaag.nl/events/"
+    },
+    {
+      "label": "Inter-City — agenda",
+      "url": "https://inter-city.nl/events"
+    },
+    {
+      "label": "Club Laak — agenda",
+      "url": "https://laak.club/agenda/"
+    },
+    {
+      "label": "Resident Advisor — PIP Den Haag",
+      "url": "https://ra.co/clubs/30689"
+    }
+  ]
+}

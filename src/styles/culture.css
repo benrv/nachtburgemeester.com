@@ -1,0 +1,156 @@
+/* ============================================================
+   NACHTLEVEN — culturele plekken & agenda
+   ============================================================ */
+
+.culture{
+  margin-top:clamp(58px,7vw,104px);
+  padding-top:clamp(24px,3vw,40px);
+  border-top:1px solid var(--line);
+  scroll-margin-top:calc(var(--head-h) + 24px);
+}
+.culture__head{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.72fr);
+  gap:clamp(26px,5vw,70px);align-items:end;margin-bottom:clamp(30px,4vw,48px);
+}
+.culture .kicker{margin-bottom:16px;color:var(--acid)}
+.culture .display em{color:var(--acid)}
+.culture__intro .body{max-width:46ch;color:var(--muted)}
+.culture__note{
+  margin-top:16px;font:400 8px/1.7 var(--mono);letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);max-width:48ch;
+}
+
+.venue-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.venue{
+  position:relative;display:flex;flex-direction:column;min-height:100%;
+  border:1px solid var(--line);background:var(--c-card);padding:clamp(18px,2vw,26px);
+  transform:perspective(900px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));
+  transition:border-color .3s var(--ease),background .3s var(--ease),transform .25s ease-out;
+  transform-style:preserve-3d;
+}
+.venue:hover{border-color:var(--acid)}
+.venue:focus-within{border-color:var(--acid)}
+.venue__top{
+  display:flex;justify-content:space-between;gap:10px;align-items:baseline;
+  font:400 8px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+}
+.venue__top span:last-child{text-align:right}
+.venue h3{
+  margin:clamp(24px,3.2vw,42px) 0 8px;font-size:clamp(2rem,3.3vw,3.2rem);
+  line-height:.86;letter-spacing:-.05em;text-transform:uppercase;font-weight:800;
+  font-variation-settings:"wght" 800,"wdth" 88,"opsz" 64;
+}
+.venue h3 a{color:var(--fg);text-decoration:none}
+.venue h3 a:hover{color:var(--acid)}
+.venue__address{font:400 8.5px/1.5 var(--mono);letter-spacing:.04em;color:var(--muted);margin-bottom:20px}
+.venue__desc{font-size:.9rem;line-height:1.55;color:var(--soft);max-width:34ch;margin-bottom:20px}
+.venue__tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;margin-bottom:20px}
+.venue__tags span{
+  font:400 7.5px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;
+  border:1px solid var(--line);padding:5px 6px;color:var(--muted);
+}
+.venue__links{display:flex;flex-wrap:wrap;gap:10px 14px;border-top:1px solid var(--line);padding-top:13px}
+.venue__links a{
+  font:700 8px/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;
+  text-decoration:underline;text-underline-offset:3px;color:var(--fg);
+}
+.venue__links a:hover{color:var(--acid)}
+
+/* agenda */
+.agenda{margin-top:clamp(44px,6vw,76px);padding-top:clamp(20px,2.4vw,30px);border-top:1px solid var(--line)}
+.agenda__head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:12px}
+.agenda__head .kicker{margin-bottom:12px;color:var(--acid)}
+.agenda__title{
+  font-size:clamp(1.5rem,2.5vw,2.3rem);line-height:.95;letter-spacing:-.04em;
+  text-transform:uppercase;font-weight:800;font-variation-settings:"wght" 800,"wdth" 90,"opsz" 48;
+}
+.agenda__filters{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:5px}
+.agenda__filter{
+  font:400 8px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid var(--line);padding:8px 9px;color:var(--muted);transition:.2s;
+}
+.agenda__filter span{opacity:.6;margin-left:4px}
+.agenda__filter:hover{color:var(--fg);border-color:var(--fg)}
+.agenda__filter.is-on{background:var(--acid);border-color:var(--acid);color:#0A0A0B}
+.agenda__list{list-style:none;margin:0;padding:0}
+.agenda__row{
+  display:grid;grid-template-columns:88px minmax(0,1fr);gap:clamp(14px,3vw,38px);
+  padding:18px 0 19px;border-top:1px solid var(--line);position:relative;isolation:isolate;
+  transition:padding .25s var(--ease);
+}
+.agenda__row::before{
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--acid);
+  transform:scaleY(0);transform-origin:bottom;transition:transform .3s var(--ease);
+}
+.agenda__row:hover::before,.agenda__row:focus-within::before{transform:scaleY(1);transform-origin:top}
+.agenda__row:hover,.agenda__row:focus-within{padding-left:12px;padding-right:12px}
+.agenda__row[hidden]{display:none}
+.agenda__date{
+  display:flex;flex-direction:column;gap:2px;font:400 8px/1 var(--mono);
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+}
+.agenda__date b{font:700 clamp(1.6rem,2.3vw,2.2rem)/.9 var(--mono);letter-spacing:-.07em;color:var(--fg)}
+.agenda__date small{font-size:8px;letter-spacing:.1em;text-transform:uppercase}
+.agenda__body{min-width:0}
+.agenda__top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.agenda__top h4{
+  font-size:clamp(1.05rem,1.55vw,1.35rem);line-height:1.15;letter-spacing:-.025em;
+  font-weight:700;font-variation-settings:"wght" 700,"wdth" 96,"opsz" 28;
+}
+.agenda__badge{
+  flex:none;font:700 7px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid currentColor;padding:5px 6px;color:var(--flare);
+}
+.agenda__meta{font:400 8px/1.5 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+.agenda__meta>span{margin:0 4px;opacity:.45}
+.agenda__note{font-size:.84rem;line-height:1.5;color:var(--soft);margin-top:6px;max-width:70ch}
+.agenda__links{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:8px}
+.agenda__links a{
+  font:400 7.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:underline;text-underline-offset:3px;color:var(--muted);
+}
+.agenda__links a:hover{color:var(--fg)}
+.agenda__row:hover .agenda__date,
+.agenda__row:hover .agenda__date b,
+.agenda__row:hover .agenda__date small,
+.agenda__row:hover .agenda__meta,
+.agenda__row:hover .agenda__note,
+.agenda__row:hover .agenda__links a,
+.agenda__row:hover .agenda__badge{color:rgba(10,10,11,.66)}
+.agenda__row:hover .agenda__top h4{color:#0A0A0B}
+.agenda__row:hover .agenda__date b{color:#0A0A0B}
+.agenda__empty{font:400 9px/1.5 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:20px 0;border-top:1px solid var(--line)}
+.agenda__source{
+  font:400 7.5px/1.7 var(--mono);letter-spacing:.05em;text-transform:uppercase;
+  color:var(--muted);margin-top:18px;max-width:100ch;
+}
+.agenda__source a{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
+.agenda__source a:hover{color:var(--acid)}
+
+@media (max-width:980px){
+  .culture__head{grid-template-columns:1fr;gap:20px}
+  .venue-grid{grid-template-columns:1fr;gap:8px}
+  .venue{min-height:0}
+  .venue h3{margin-top:20px}
+  .venue__desc{max-width:60ch}
+  .agenda__head{flex-direction:column;align-items:flex-start}
+  .agenda__filters{justify-content:flex-start}
+}
+@media (max-width:680px){
+  .culture{margin-top:52px}
+  .agenda__row{grid-template-columns:58px minmax(0,1fr);gap:12px;padding:15px 0}
+  .agenda__date b{font-size:1.45rem}
+  .agenda__top{display:block}
+  .agenda__badge{display:inline-block;margin-top:6px}
+  .agenda__note{font-size:.8rem}
+  .agenda__links{gap:8px 12px}
+  .venue__links{gap:8px 10px}
+}
+
+/* dagstand: acid op papier is te licht voor grote tekst */
+[data-sky="day"] .culture .kicker,
+[data-sky="day"] .agenda__head .kicker{color:var(--c-fg)}
+[data-sky="day"] .culture .display em{
+  color:#0A0A0B;background:var(--c-acid);padding:0 .045em;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}

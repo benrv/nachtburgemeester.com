@@ -1,0 +1,132 @@
+---
+import '../styles/culture.css';
+
+interface Venue {
+  id: string;
+  name: string;
+  type: string;
+  address: string;
+  website: string;
+  agenda: string;
+  instagram?: string;
+  tickets?: string;
+  description: string;
+  tags: string[];
+}
+interface Event {
+  date: string;
+  start: string;
+  end?: string;
+  title: string;
+  venue: string;
+  venueLabel?: string;
+  locationVenue?: string;
+  note?: string;
+  url: string;
+  ticket?: string;
+  source: string;
+  soldOut?: boolean;
+}
+interface Culture {
+  city: string;
+  updated: string;
+  intro: string;
+  venues: Venue[];
+  events: Event[];
+  sources: { label: string; url: string }[];
+}
+
+interface Props { culture: Culture; }
+const { culture } = Astro.props;
+
+const venues = culture.venues;
+const venueById = Object.fromEntries(venues.map((v) => [v.id, v]));
+const events = [...culture.events].sort((a, b) => `${a.date}${a.start}`.localeCompare(`${b.date}${b.start}`));
+const dayFmt = new Intl.DateTimeFormat('nl-NL', { day: '2-digit' });
+const monthFmt = new Intl.DateTimeFormat('nl-NL', { month: 'short' });
+const weekdayFmt = new Intl.DateTimeFormat('nl-NL', { weekday: 'short' });
+const eventDate = (iso: string) => new Date(`${iso}T12:00:00+01:00`);
+const eventCount = (id: string) => events.filter((e) => e.venue === id).length;
+const updatedLabel = new Intl.DateTimeFormat('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' }).format(eventDate(culture.updated));
+---
+<section class="culture" id="nachtleven" aria-labelledby="cultureTitle">
+  <header class="culture__head">
+    <div>
+      <p class="kicker">Nachtleven · Den Haag</p>
+      <h2 class="display display--sm" id="cultureTitle">Waar de nacht<br /><em>gebeurt.</em></h2>
+    </div>
+    <div class="culture__intro">
+      <p class="body">{culture.intro}</p>
+      <p class="culture__note">Plekken zijn geselecteerd op uitstraling en programmering, niet op betaalde vermelding. Check altijd de agenda van de club zelf.</p>
+    </div>
+  </header>
+
+  <div class="venue-grid">
+    {venues.map((venue, i) => (
+      <article class="venue" data-tilt>
+        <div class="venue__top">
+          <span>{String(i + 1).padStart(2, '0')}</span>
+          <span>{venue.type}</span>
+        </div>
+        <h3><a href={venue.website} target="_blank" rel="noopener">{venue.name}</a></h3>
+        <p class="venue__address">{venue.address}</p>
+        <p class="venue__desc">{venue.description}</p>
+        <div class="venue__tags">{venue.tags.map((tag) => <span>{tag}</span>)}</div>
+        <div class="venue__links">
+          <a href={venue.website} target="_blank" rel="noopener">Website <span aria-hidden="true">↗</span></a>
+          <a href={venue.agenda} target="_blank" rel="noopener">Agenda <span aria-hidden="true">↗</span></a>
+          {venue.tickets ? <a href={venue.tickets} target="_blank" rel="noopener">Tickets <span aria-hidden="true">↗</span></a> : null}
+          {venue.instagram ? <a href={venue.instagram} target="_blank" rel="noopener">Instagram <span aria-hidden="true">↗</span></a> : null}
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <section class="agenda" data-agenda aria-labelledby="agendaTitle">
+    <div class="agenda__head">
+      <div>
+        <p class="kicker">Op de kalender</p>
+        <h3 class="agenda__title" id="agendaTitle">De komende nachten</h3>
+      </div>
+      <div class="agenda__filters" role="group" aria-label="Filter de agenda op club">
+        <button type="button" class="agenda__filter is-on" data-agenda-filter="all" aria-pressed="true">Alles <span>{events.length}</span></button>
+        {venues.map((venue) => (
+          <button type="button" class="agenda__filter" data-agenda-filter={venue.id} aria-pressed="false">{venue.name} <span>{eventCount(venue.id)}</span></button>
+        ))}
+      </div>
+    </div>
+
+    <ol class="agenda__list">
+      {events.map((event) => {
+        const date = eventDate(event.date);
+        const venue = venueById[event.venue];
+        const time = event.end ? `${event.start}–${event.end}` : event.start;
+        return (
+          <li class="agenda__row" data-venue={event.venue} data-date={event.date}>
+            <time class="agenda__date" datetime={event.date}>
+              <span>{weekdayFmt.format(date)}</span>
+              <b>{dayFmt.format(date)}</b>
+              <small>{monthFmt.format(date)}</small>
+            </time>
+            <div class="agenda__body">
+              <div class="agenda__top">
+                <h4>{event.title}</h4>
+                {event.soldOut ? <span class="agenda__badge">Uitverkocht</span> : null}
+              </div>
+              <p class="agenda__meta">{event.venueLabel || venue?.name} <span>·</span> {time}</p>
+              {event.note ? <p class="agenda__note">{event.note}</p> : null}
+              <div class="agenda__links">
+                <a href={event.url} target="_blank" rel="noopener">Bron: {event.source} <span aria-hidden="true">↗</span></a>
+                {event.ticket && !event.soldOut ? <a href={event.ticket} target="_blank" rel="noopener">Tickets <span aria-hidden="true">↗</span></a> : null}
+              </div>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+    <p class="agenda__empty" data-agenda-empty hidden>Geen aankomende events in deze selectie.</p>
+    <p class="agenda__source">Agenda handmatig bijgehouden op {updatedLabel}. Tijden en line-ups kunnen wijzigen; de bron van de club is leidend. Bronnen: {culture.sources.map((s, i) => (
+      <span>{i > 0 ? ' · ' : ''}<a href={s.url} target="_blank" rel="noopener">{s.label}</a></span>
+    ))}</p>
+  </section>
+</section>

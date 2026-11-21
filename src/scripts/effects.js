@@ -61,6 +61,40 @@
     }
   }
 
+  /* ---------- agenda filter ---------- */
+  const agenda = $('[data-agenda]');
+  if (agenda) {
+    const rows = $$('.agenda__row', agenda);
+    const filters = $$('[data-agenda-filter]', agenda);
+    const empty = $('[data-agenda-empty]', agenda);
+    const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Amsterdam' }).format(new Date());
+    let current = 'all';
+    const applyAgenda = () => {
+      let visible = 0;
+      filters.forEach((b) => {
+        const f = b.dataset.agendaFilter;
+        const count = rows.filter((r) => r.dataset.date >= today && (f === 'all' || r.dataset.venue === f)).length;
+        const badge = b.querySelector('span');
+        if (badge) badge.textContent = count;
+      });
+      rows.forEach((row) => {
+        const upcoming = row.dataset.date >= today;
+        const matches = current === 'all' || row.dataset.venue === current;
+        const show = upcoming && matches;
+        row.hidden = !show;
+        if (show) visible++;
+      });
+      if (empty) empty.hidden = visible !== 0;
+      filters.forEach((b) => {
+        const on = b.dataset.agendaFilter === current;
+        b.classList.toggle('is-on', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+    };
+    filters.forEach((b) => b.addEventListener('click', () => { current = b.dataset.agendaFilter; applyAgenda(); }));
+    applyAgenda();
+  }
+
   /* ---------- sky-change flash ---------- */
   const html = document.documentElement;
   if (!reduce) {

@@ -25,6 +25,7 @@ Door de namen en verhalen op één plek te zetten, wordt de nachtburgemeester zi
 - Een interactieve kaart van Nederland.
 - Een doorzoekbaar register met filters op status en provincie.
 - Stadsprofielen met bronnen, achtergrond, mini-kaart en een correctielink.
+- **Den Haag als eerste stad met een nachtleven-laag**: PIP, Inter-City en Club Laak, plus een handmatig bijgehouden agenda.
 - Uitleg over de methode: geen naam zonder bron, geen wijziging zonder datum.
 
 De stand is **21 november 2026**. Den Haag heeft met **Lotte Ottevanger** een bevestigde burgemeester. In Amsterdam is **Freek Wallagh** de zittende burgemeester; zijn opvolger wordt op **26 november 2026** gekozen. Tilburg en Breda staan nog op de onderzoekslijst. Waar geen bevestigde bron is, staat niets — ook geen gerucht.
@@ -85,6 +86,16 @@ scripts/rewrite-base.mjs  padcorrectie voor de github.io-preview
 De build faalt bij ontbrekende bronnen, verkeerde aantallen of een ontbrekend fotobestand. Draai daarom altijd `npm run build` vóór een pull request.
 
 De deploy loopt via `.github/workflows/deploy.yml`. Zolang er geen `public/CNAME` is, bouwt de workflow voor de projectpagina op GitHub Pages. Zodra je een custom domain toevoegt, bouwt hij voor de root. Geen API-keys of geheimen in de repo.
+
+## Den Haag: nachtleven
+
+Den Haag is de eerste stad met een culturele laag op het profiel. Drie plekken:
+
+- **[PIP](https://pipdenhaag.nl/)** — club, tuin en expo aan de Binckhorstlaan.
+- **[Inter-City](https://inter-city.nl/)** — cultuurpark van 8.000 m² met drie zalen, theater en café.
+- **[Club Laak](https://laak.club/)** — intieme club aan Lulofsstraat 59, achter de metalen poort.
+
+De agenda is bijgewerkt op **21 november 2026** op basis van de clubagenda's en [Resident Advisor](https://ra.co/clubs/30689). De data staat in `src/data/den-haag-culture.json`: per plek een id, adres, website, agenda en beschrijving; per event een datum, tijd, bron, ticketlink en optioneel `soldOut`. Tijden en line-ups kunnen wijzigen; de bron van de club is leidend. De build controleert de cultuurdata mee.
 
 ## Fotografie
 
