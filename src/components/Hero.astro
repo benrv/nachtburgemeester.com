@@ -1,9 +1,7 @@
 ---
-import { meta } from '../lib/cities';
-interface Props { active: number; collectives: number; vacant: number; }
-const { active, collectives, vacant } = Astro.props;
+import NightMayor from './NightMayor.astro';
 ---
-<section class="hero" aria-labelledby="heroTitle">
+<section class="hero hero--monument" aria-labelledby="heroTitle">
   <canvas class="hero__stars" id="heroStars" aria-hidden="true"></canvas>
   <div class="hero__rig" aria-hidden="true"><i></i><i></i></div>
   <div class="hero__grid" aria-hidden="true"></div>
@@ -11,59 +9,20 @@ const { active, collectives, vacant } = Astro.props;
   <div class="hero__glow hero__glow--b" aria-hidden="true"></div>
   <div class="hero__fog" aria-hidden="true"></div>
 
-  <div class="wrap hero__wrap">
-    <div class="hero__main">
-      <p class="eyebrow hero__eyebrow"><span class="dot"></span> Het nationale register van nachtburgemeesters <span class="eyebrow__sep">/</span> <span id="heroChecked">bijgewerkt {meta.updatedLabel}</span></p>
-
-      <h1 class="hero__title" id="heroTitle">
-        <span class="line"><span style="--i:0">DE NACHT</span></span>
-        <span class="line"><span style="--i:1">HEEFT EEN</span></span>
-        <span class="line"><span style="--i:2"><em>burgemeester.</em></span></span>
+  <div class="wrap hero__wrap hero__wrap--monument">
+    <div class="hero__main hero__main--monument">
+      <h1 class="hero__title hero__title--monument" id="heroTitle" aria-label="Nachtburgemeester">
+        <span class="line">
+          <span class="word" data-text="NACHT" style="--i:0">NACHT</span>
+        </span>
+        <span class="line">
+          <span class="word" data-text="BURGEMEESTER" style="--i:1">BURGEMEESTER</span>
+        </span>
       </h1>
-      <p class="hero__note">In <b id="heroCount">{active}</b> steden. Met naam, bron en datum.</p>
-
-      <div class="hero__lower">
-        <p class="hero__lede">Niet elke stad heeft er een. Waar hij bestaat, vertegenwoordigt hij de uren na middernacht: de clubs, de podia, de straat, de cultuur. Dit register houdt ze bij — met bron en controledatum.</p>
-        <div class="hero__actions">
-          <a class="btn btn--solid" href="#register">Open het register <span aria-hidden="true">↓</span></a>
-          <a class="link-arrow" href="/methode/">Hoe wij controleren <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-
-      <ul class="stats" aria-label="Cijfers">
-        <li><strong id="statCities" data-count={active}>{active}</strong><span>burgemeesters</span></li>
-        <li><strong id="statActive" data-count={collectives}>{collectives}</strong><span>collectieven</span></li>
-        <li><strong id="statProvinces" data-count={vacant}>{vacant}</strong><span>zonder</span></li>
-        <li><strong id="statChecked">21.11</strong><span>bijgewerkt</span></li>
-      </ul>
     </div>
 
-    <aside class="hero__aside" aria-label="Nachtstatus">
-      <div class="pass" data-reveal data-tilt>
-        <div class="pass__top"><span>Toegang · hele nacht</span><span>NL</span></div>
-        <div class="pass__clock"><span id="passClock">--:--</span><em>lokale tijd</em></div>
-        <div class="pass__where"><span class="dot"></span> Amsterdam · Europa</div>
-        <div class="pass__perf" aria-hidden="true"><i></i><i></i></div>
-        <div class="pass__bottom">
-          <div><span class="pass__label">Status</span><strong id="passStatus">De nacht is open</strong></div>
-          <div class="pass__sun"><span class="pass__label">Licht</span><strong id="passPhase">Nacht</strong></div>
-        </div>
-        <p class="pass__sunline" id="sunLine">Zon op 08:12 · onder 16:39</p>
-        <div class="pass__code" aria-hidden="true">
-          <svg viewBox="0 0 180 34" preserveAspectRatio="none"><path d="M2 0v34M8 0v34M11 0v22M17 0v34M22 0v34M24 0v20M30 0v34M36 0v34M39 0v26M45 0v34M50 0v34M52 0v18M58 0v34M64 0v28M66 0v34M72 0v34M77 0v24M83 0v34M86 0v34M91 0v18M97 0v34M102 0v34M105 0v26M111 0v34M117 0v34M120 0v20M126 0v34M131 0v28M133 0v34M139 0v34M144 0v22M150 0v34M153 0v34M159 0v26M165 0v34M170 0v34M173 0v20M178 0v34"/></svg>
-          <span>No. 0031 · nachtregister</span>
-        </div>
-      </div>
-
-      <div class="stamp" aria-hidden="true">
-        <svg viewBox="0 0 120 120">
-          <defs><path id="stampCircle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
-          <text><textPath href="#stampCircle" startOffset="0">NACHT · CULTUUR · NEDERLAND · SINDS 1970 · </textPath></text>
-        </svg>
-        <span>✳</span>
-      </div>
+    <aside class="hero__aside hero__aside--monument">
+      <NightMayor />
     </aside>
   </div>
-
-  <div class="hero__scroll" aria-hidden="true"><span>Scroll</span><i></i></div>
 </section>

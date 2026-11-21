@@ -8,14 +8,14 @@ import RegisterSection from '../components/RegisterSection.astro';
 import Feature from '../components/Feature.astro';
 import MethodSection from '../components/MethodSection.astro';
 import CorrectionCta from '../components/CorrectionCta.astro';
-import { cities, counts } from '../lib/cities';
+import { cities } from '../lib/cities';
 
 ---
 <Base
   title="Nachtregister — alle nachtburgemeesters van Nederland"
   description="Het nationale register van nachtburgemeesters. 14 burgemeesters, 4 collectieven en 4 steden zonder, met bron en controledatum. Van Amsterdam tot Maastricht."
 >
-  <Hero active={counts.actief} collectives={counts.collectief} vacant={counts.vacant} />
+  <Hero />
   <Marquee />
   <Manifest />
   <MapSection cities={cities} />
