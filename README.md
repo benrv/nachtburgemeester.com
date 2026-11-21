@@ -6,6 +6,8 @@ Nachtregister is een persoonlijk initiatief om de nachtburgemeesters van Nederla
 
 De site staat live op **[benrv.github.io/nachtburgermeester.com](https://benrv.github.io/nachtburgermeester.com/)**. De custom domain `nachtburgermeester.com` wordt later gekoppeld.
 
+De site beweegt: rook, sterren, een kaart die zich opent, een hologram-pass, een scrollende Marquee en paginatransities. Alle effecten respecteren `prefers-reduced-motion`.
+
 ## Waarom dit bestaat
 
 Het begon met een simpele vraag: wie spreekt er eigenlijk voor de nacht?
@@ -73,7 +75,9 @@ src/data/map.json         de SVG-kaart
 src/lib/cities.ts         types, tellingen en datumformattering
 src/pages/                homepage, profielen, methode, correcties, juridisch
 src/components/           header, footer, kaart, register, poster, formulier
-src/scripts/site.js       zon, thema, rook, kaart, filters en formulier
+src/scripts/site.js       zon, thema, kaart, filters en formulier
+src/styles/effects.css   afterhours-laag: sterren, licht, kaart, hologram
+src/scripts/effects.js   sterren, sectierail, marquee, tilt en rookpuffs
 scripts/validate-data.mjs bouwcontrole op bronnen, aantallen en foto's
 scripts/rewrite-base.mjs  padcorrectie voor de github.io-preview
 ```

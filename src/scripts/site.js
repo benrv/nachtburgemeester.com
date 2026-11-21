@@ -267,6 +267,10 @@
     addEventListener('resize', () => { resizeHaze(); seedHaze(); });
     setTimeout(() => hazeBurst(innerWidth * .72, innerHeight * .42, 14, 1.4), 500);
     setTimeout(() => hazeBurst(innerWidth * .5, innerHeight * .98, 12, 1.2), 900);
+    window.addEventListener('nr:smoke', e => {
+      const d = e.detail || {};
+      hazeBurst(d.x ?? innerWidth * .5, d.y ?? innerHeight * .6, d.amount ?? 7, d.power ?? 1);
+    }, { passive: true });
     document.addEventListener('pointerdown', e => {
       if (e.target.closest('.btn')) hazeBurst(e.clientX, e.clientY, 9, 1.25);
     }, { passive: true });
@@ -313,17 +317,25 @@
     };
     const tip = (el) => {
       if (!tooltip) return;
-      const r = el.getBoundingClientRect(), b = mapBox.getBoundingClientRect();
+      const hit = el.querySelector('.n-hit') || el;
+      const r = hit.getBoundingClientRect(), b = mapBox.getBoundingClientRect();
       tooltip.innerHTML = `${el.dataset.city}<small>${el.dataset.name || 'Geen burgemeester'}</small>`;
       tooltip.style.left = `${r.left - b.left + r.width / 2}px`;
       tooltip.style.top = `${r.top - b.top}px`;
       tooltip.classList.add('is-on');
     };
+    let tipTimer = 0;
     nodes.forEach(el => {
-      el.addEventListener('mouseenter', () => { update(el); tip(el); });
-      el.addEventListener('focus', () => { update(el); tip(el); });
-      el.addEventListener('mouseleave', () => tooltip?.classList.remove('is-on'));
-      el.addEventListener('blur', () => tooltip?.classList.remove('is-on'));
+      const hideTip = () => {
+        clearTimeout(tipTimer);
+        tipTimer = setTimeout(() => {
+          if (!mapBox.matches(':hover') && !mapBox.contains(document.activeElement)) tooltip?.classList.remove('is-on');
+        }, 110);
+      };
+      el.addEventListener('mouseenter', () => { clearTimeout(tipTimer); update(el); tip(el); });
+      el.addEventListener('focus', () => { clearTimeout(tipTimer); update(el); tip(el); });
+      el.addEventListener('mouseleave', hideTip);
+      el.addEventListener('blur', hideTip);
     });
   }
 
@@ -488,6 +500,10 @@
     const consent = $('#corrConsent');
     const msg = $('#formMsg');
     const endpoint = form.dataset.endpoint || '';
+    const smoke = (power = 1) => {
+      const r = form.getBoundingClientRect();
+      window.dispatchEvent(new CustomEvent('nr:smoke', { detail: { x: r.left + r.width * .62, y: r.top + 160, amount: 10, power } }));
+    };
 
     const qs = new URLSearchParams(location.search).get('stad');
     if (qs && city) {
@@ -524,6 +540,7 @@
           if (!res.ok) throw new Error('netwerk');
           msg.textContent = 'Dank. We controleren je melding en passen het register aan met bron en datum.';
           msg.classList.add('is-ok');
+          smoke(1.3);
           form.reset();
         } catch (err) {
           msg.textContent = 'Versturen lukte niet. Mail ons op hallo@nachtburgermeester.com.';
@@ -536,6 +553,7 @@
         location.href = `mailto:hallo@nachtburgermeester.com?subject=${encodeURIComponent('Correctie nachtregister: ' + data.city)}&body=${encodeURIComponent(body)}`;
         msg.textContent = 'Je e-mailprogramma opent met de melding. Verstuur de e-mail om de correctie af te ronden.';
         msg.classList.add('is-ok');
+        smoke(1.15);
       }
     });
   }

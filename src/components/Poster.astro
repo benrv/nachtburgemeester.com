@@ -4,8 +4,9 @@ interface Props { city: City; label?: string; variant?: 'feature' | 'profile'; }
 const { city, label = 'Uitgelicht · 11 / ’26', variant = 'feature' } = Astro.props;
 const initial = city.city.replace(/^'s-/, '').charAt(0).toUpperCase();
 ---
-<figure class={`poster poster--${variant}`}>
+<figure class={`poster poster--${variant}`} data-tilt>
   <div class="poster__noise" aria-hidden="true"></div>
+  <div class="poster__holo" aria-hidden="true"></div>
   <div class="poster__halftone" aria-hidden="true"></div>
   <span class="poster__tag">{label}</span>
   <span class="poster__vertical">{city.city} · {city.city} · {city.city}</span>
