@@ -3,7 +3,7 @@ import { activeCities } from '../lib/cities';
 const names = activeCities.map(c => c.city).slice(0, 14);
 const strip = names.map(n => `${n} <b>✳</b> `).join('');
 ---
-<div class="marquee" aria-hidden="true">
+<div class="marquee" data-marquee aria-hidden="true">
   <div class="marquee__track">
     <span set:html={strip}></span>
     <span set:html={strip}></span>

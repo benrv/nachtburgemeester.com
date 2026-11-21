@@ -2,6 +2,7 @@
 import '../styles/base.css';
 import '../styles/theme.css';
 import '../styles/site.css';
+import '../styles/effects.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -88,7 +89,7 @@ const json = JSON.stringify(graph).replace(/</g, '\\u003c');
   <body class={bodyClass} id="top">
     <a class="skip" href="#main">Naar de inhoud</a>
     <div class="veil" aria-hidden="true"></div>
-    <canvas class="haze" id="haze" aria-hidden="true"></canvas>
+    <div class="smokefield" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="grain" aria-hidden="true"></div>
     <div class="spotlight" aria-hidden="true"></div>
     <div class="cursor" aria-hidden="true"><span></span></div>
@@ -104,6 +105,7 @@ const json = JSON.stringify(graph).replace(/</g, '\\u003c');
 
     <script>
       import '../scripts/site.js';
+      import '../scripts/effects.js';
     </script>
   </body>
 </html>
